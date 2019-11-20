@@ -1,0 +1,223 @@
+---
+title             : "The title"
+shorttitle        : "Title"
+
+author: 
+  - name          : "First Author"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "my@email.com"
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"
+
+affiliation:
+  - id            : "1"
+    institution   : "Wilhelm-Wundt-University"
+  - id            : "2"
+    institution   : "Konstanz Business School"
+
+authornote: |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter author note here.
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  
+  One or two sentences to put the results into a more **general context**.
+  
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["r-references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library(rio)
+library(here)
+library(tidyverse)
+library(janitor)
+library(datapasta)
+library(papaja)
+library(knitr)
+
+theme_set(theme_minimal())
+opts_chunk$set(echo = FALSE,
+               fig.width = 6.5,
+               fig.height = 8)
+
+```
+
+```{r load data}
+
+safe <- import(here("data", "2006_school_safety.sav"),
+               setclass = "tbl_df") %>% 
+  characterize() %>% 
+  janitor::clean_names() 
+
+library(knitr)
+library(kableExtra)
+
+```
+
+``` {r tidy-data}
+
+safe_organized <- safe %>% 
+  select(school_id, urban, level, minority, enroll, tt_cm, tt_dp, tt_s, tt_wsvb, tt_pbi, disc_rec, inc_rec, inc_rep_po, oss)
+
+tidy_disc <- safe_organized %>% 
+  pivot_longer(
+    cols = c(disc_rec, inc_rec, inc_rep_po),
+    names_to = "discipline_type",
+    values_to = "frequency"
+  ) 
+
+head(tidy_disc)
+
+
+tidy_disc %>% 
+  mutate(discipline_type = factor(discipline_type, 
+                                  levels = c(disc_rec,
+                                             inc_rec, 
+                                             inc_rep_po),
+                                  labels = c(disc_rec = "Disciplinary Actions Reported",
+                                             inc_rec = "Incidents Reported", 
+                                             inc_rep_po = "Incidents Reported to Police")))
+
+
+head(tidy_disc)
+
+tidy_disc %>% 
+  filter(disc_rec > 50)
+
+```
+
+```{r plots}
+ggplot(safe_organized) +
+  geom_bar(aes(urban, fill = level),
+           position = "dodge") +
+  theme_minimal() +
+  labs(x = "School Urbanness Category with Fill of School Level", 
+       y = "Total",
+       title = "Number of Schools per Urban Category and Level",
+       caption = "Created by Jim Wright and Claire Zhang",
+       tag = "(1)")
+
+ggplot(safe_organized) +
+  geom_bar(aes(urban, fill = level),
+           position = "dodge") +
+  facet_wrap(~enroll) +
+  theme_minimal() +
+  labs(x = "School Urbanness Category with Fill of School Level Faceted by School Enrollment", 
+       y = "Total",
+       title = "Number of Schools per Urban Category and Level",
+       caption = "Created by Jim Wright and Claire Zhang",
+       tag = "(2)")
+
+ggplot(safe_organized, aes(oss, disc_rec)) +
+  geom_point(aes(color = enroll), position = "jitter") +
+  geom_smooth() +
+  theme_minimal() +
+  labs(x = "Total Number of Out of School Suspensions", 
+       y = "Total Number Disciplinary Actions Reported to School Administration",
+       title = "Relationship Between Out of School Suspensions and Reported Disciplinary Actions",
+       caption = "Created by Jim Wright and Claire Zhang",
+       tag = "(3)")
+
+
+ggplot(safe_organized) +
+  geom_bar(aes(x = urban, fill = tt_cm), 
+           position = "dodge") +
+  facet_wrap(~enroll) +
+  theme_minimal() +
+  labs(x = "School Urbanness Category", 
+       y = "Number of Schools That Provide Teacher Training on Classroom Management",
+       title = "The Provision of Teacher Training on Classroom Management by Urbanness and Enrollment of School",
+       caption = "Created by Jim Wright and Claire Zhang",
+       tag = "(4)")
+#curious on how to change legend title on plot 4
+
+
+```
+
+```{r model}
+mod1 <- lm(oss ~ urban + enroll, data = safe_organized)
+summary(mod)
+
+# Schools coded as Urban with an enrollment over 1,000 or more students reported an average of 
+# 36.03 out of school suspensions.  Schools coded as rural reported, on average, 6.26 fewer suspensions
+# controlling for school enrollment size.  Schools coded as Town reported, on average, 4.34 fewer suspensions. 
+# ^Continue results following same interpretation. The model accounted for approximately 6.3% of the variance. 
+
+mod1_summary <- safe_organized %>% 
+  group_by(urban) %>% 
+  summarize(total_oss = sum(oss))
+
+mod1_plot <- safe_organized %>% 
+  mutate(pred_mod1 = predict(mod1))
+
+ggplot(safe_organized, aes(urban, oss)) +
+  geom_boxplot()
+#Not sure if this plot makes any sense 
+
+head(mod1_summary)
+
+```
+
+
+# Methods
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+## Material
+
+## Procedure
+
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+
+# Results
+
+# Discussion
+
+
+\newpage
+
+# References
+```{r create_r-references}
+r_refs(file = "r-references.bib")
+```
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup
