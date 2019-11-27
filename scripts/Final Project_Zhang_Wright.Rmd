@@ -129,6 +129,7 @@ ggplot(safe_organized) +
        caption = "Created by Jim Wright and Claire Zhang",
        tag = "(1)",
        fill = "School level")
+# Really interesting graph! I appreciate how clearly you can compare between school levels, and it tells an important part of the story that I wouldn't have thought to look into. The x-axis label can probably just be "School Urbanness", because the legend tells us that the fill is School Level. I was unclear on what the y-axis represented by looking just at its label, so it may be useful to label it "Number of Schools"!
 
 #very cool! You might want to consider using 
 ggplot(safe_organized) +
@@ -141,10 +142,21 @@ ggplot(safe_organized) +
        title = "Number of Schools per Urban Category and Level",
        caption = "Created by Jim Wright and Claire Zhang",
        tag = "(2)")
+# I just realized you're putting a "tag" on each graph - that's really good to know! I'm again a little confused by the labels - it would help if the title and labels reflected the faceting you introduced (something like "Number of Schools per Urban Category, Level, and School Enrollment").
 
 ggplot(safe_organized, aes(oss, disc_rec)) +
-  geom_point(aes(color = enroll), position = "jitter") +
+  geom_point(aes(color = enroll), position = "jitter") + #you can put size = 0.2 to make the points smaller
   geom_smooth() +
+  theme_minimal() +
+  labs(x = "Total Number of Out of School Suspensions", 
+       y = "Total Number Disciplinary Actions Reported to School Administration",
+       title = "Relationship Between Out of School Suspensions and Reported Disciplinary Actions",
+       caption = "Created by Jim Wright and Claire Zhang",
+       tag = "(3)")
+# I think there's some cool information here, but because all the points are clustered, it's hard to piece apart anything clear from it. I made the points smaller, but it didn't seem to clarify things. It may be that the outliers make this effect difficult to see! Here's another option:
+
+ggplot(safe_organized, aes(oss, disc_rec, color = enroll)) +
+  geom_area(alpha=0.1) + #you can put size = 0.2 to make the points smaller
   theme_minimal() +
   labs(x = "Total Number of Out of School Suspensions", 
        y = "Total Number Disciplinary Actions Reported to School Administration",
@@ -190,6 +202,7 @@ ggplot(safe_organized, aes(urban, oss)) +
   geom_boxplot()
 #Not sure if this plot makes any sense 
 #What is oss?
+# Again, I think clearer labels will be really helpful for interpretation here! 
 
 head(mod1_summary)
 
