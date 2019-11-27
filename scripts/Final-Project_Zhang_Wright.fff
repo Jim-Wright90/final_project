@@ -1,0 +1,7 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Final-Project_Zhang_Wright_files/figure-latex/model-1.pdf}
+\caption{}
+\end{figure*}

@@ -1,7 +1,6 @@
 ---
 title             : "The title"
 shorttitle        : "Title"
-
 author: 
   - name          : "First Author"
     affiliation   : "1"
@@ -10,18 +9,14 @@ author:
     email         : "my@email.com"
   - name          : "Ernst-August Doelle"
     affiliation   : "1,2"
-
 affiliation:
   - id            : "1"
     institution   : "Wilhelm-Wundt-University"
   - id            : "2"
     institution   : "Konstanz Business School"
-
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
   Enter author note here.
-
 abstract: |
   One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
   
@@ -37,13 +32,11 @@ abstract: |
   
   Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
   
-  <!-- https://tinyurl.com/ybremelq -->
   
+  <!-- https://tinyurl.com/ybremelq -->
 keywords          : "keywords"
 wordcount         : "X"
-
 bibliography      : ["r-references.bib"]
-
 floatsintext      : no
 figurelist        : no
 tablelist         : no
@@ -51,20 +44,23 @@ footnotelist      : no
 linenumbers       : yes
 mask              : no
 draft             : no
-
 documentclass     : "apa6"
 classoption       : "man"
 output            : papaja::apa6_pdf
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
+#I cleaned up your libraries (I got rid of janitor since you called it directly in the second code chunk)
+#I didn't see you use datapasta, knitr, or kableExtra but maybe you intend to use them later?
 library(rio)
 library(here)
 library(tidyverse)
-library(janitor)
 library(datapasta)
 library(papaja)
 library(knitr)
+library(kableExtra)
 
 theme_set(theme_minimal())
 opts_chunk$set(echo = FALSE,
@@ -80,8 +76,6 @@ safe <- import(here("data", "2006_school_safety.sav"),
   characterize() %>% 
   janitor::clean_names() 
 
-library(knitr) # Thuy: you may want to put all library in the first code chunk
-library(kableExtra)
 
 ```
 
@@ -90,36 +84,41 @@ library(kableExtra)
 safe_organized <- safe %>% 
   select(school_id, urban, level, minority, enroll, tt_cm, tt_dp, tt_s, tt_wsvb, tt_pbi, disc_rec, inc_rec, inc_rep_po, oss)
 
+#this wasn't running for me without quotes around the variables in the columns
 tidy_disc <- safe_organized %>% 
   pivot_longer(
-    cols = c(disc_rec, inc_rec, inc_rep_po),
+    cols = c("disc_rec", "inc_rec", "inc_rep_po"),
     names_to = "discipline_type",
     values_to = "frequency"
   ) 
 
 head(tidy_disc)
 
-
-tidy_disc %>% 
+#same here.. it wasn't running for me without quotes. Did you want to save this? I added code so that it saves what you changed
+tidy_disc <- tidy_disc %>% 
   mutate(discipline_type = factor(discipline_type, 
-                                  levels = c(disc_rec,
-                                             inc_rec, 
-                                             inc_rep_po),
-                                  labels = c(disc_rec = "Disciplinary Actions Reported",
-                                             inc_rec = "Incidents Reported", 
-                                             inc_rep_po = "Incidents Reported to Police")))
+                                  levels = c("disc_rec",
+                                             "inc_rec", 
+                                             "inc_rep_po"),
+                                  labels = c("disc_rec" = "Disciplinary Actions Reported",
+                                             "inc_rec" = "Incidents Reported", 
+                                             "inc_rep_po" = "Incidents Reported to Police")))
 
 # Thuy: I can see that the above line returns "Error in factor(discipline_type, levels = c(disc_rec, inc_rec, inc_rep_po), object 'disc_rec' not found" ==> this is probaly because you already pivot it in the earlier code line. That means disc_rec is no longer in your tidy_disc data. 
 
 
 head(tidy_disc)
 
-tidy_disc %>% 
-  filter(disc_rec > 50)
+#I'm not sure what you a trying to do here since "disc_rec" is a level in a variable and not a column name. Did you mean to do this before you tidyed the data?
+#commenting out because it wouldn't knit
+#tidy_disc %>% 
+#  filter(disc_rec > 50)
 
 ```
 
 ```{r plots}
+#very cool... I didn't know you could add a caption or tag with labs
+#I edited the legend using fill in labs to make it more informative
 ggplot(safe_organized) +
   geom_bar(aes(urban, fill = level),
            position = "dodge") +
@@ -128,8 +127,10 @@ ggplot(safe_organized) +
        y = "Total",
        title = "Number of Schools per Urban Category and Level",
        caption = "Created by Jim Wright and Claire Zhang",
-       tag = "(1)")
+       tag = "(1)",
+       fill = "School level")
 
+#very cool! You might want to consider using 
 ggplot(safe_organized) +
   geom_bar(aes(urban, fill = level),
            position = "dodge") +
@@ -151,7 +152,8 @@ ggplot(safe_organized, aes(oss, disc_rec)) +
        caption = "Created by Jim Wright and Claire Zhang",
        tag = "(3)")
 
-
+#I wasn't sure what you wanted for the legend title, but this is an easy way to do it! 
+#you might also want to consider putting them all in one row with nrow =1 in the facet wrap
 ggplot(safe_organized) +
   geom_bar(aes(x = urban, fill = tt_cm), 
            position = "dodge") +
@@ -161,7 +163,8 @@ ggplot(safe_organized) +
        y = "Number of Schools That Provide Teacher Training on Classroom Management",
        title = "The Provision of Teacher Training on Classroom Management by Urbanness and Enrollment of School",
        caption = "Created by Jim Wright and Claire Zhang",
-       tag = "(4)")
+       tag = "(4)",
+       fill = "insert legend title")
 #curious on how to change legend title on plot 4
 
 
@@ -169,7 +172,7 @@ ggplot(safe_organized) +
 
 ```{r model}
 mod1 <- lm(oss ~ urban + enroll, data = safe_organized)
-summary(mod)
+summary(mod1)
 
 # Schools coded as Urban with an enrollment over 1,000 or more students reported an average of 
 # 36.03 out of school suspensions.  Schools coded as rural reported, on average, 6.26 fewer suspensions
@@ -186,6 +189,7 @@ mod1_plot <- safe_organized %>%
 ggplot(safe_organized, aes(urban, oss)) +
   geom_boxplot()
 #Not sure if this plot makes any sense 
+#What is oss?
 
 head(mod1_summary)
 
