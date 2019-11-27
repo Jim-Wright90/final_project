@@ -26,7 +26,7 @@ floatsintext      : no
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-linenumbers       : yes
+linenumbers       : no
 mask              : no
 draft             : no
 documentclass     : "apa6"
@@ -46,11 +46,6 @@ library(datapasta)
 library(papaja)
 library(knitr)
 library(kableExtra)
-
-
-tinytex::install_tinytex()
-
-
 theme_set(theme_minimal())
 opts_chunk$set(echo = FALSE,
                fig.width = 6.5,
@@ -299,7 +294,31 @@ Positive Behavioral Intervention")
 
 ```
 
+```{r, relationship between teacher training and student suspension, include=TRUE}
+tt_oss <- safe_organized %>% 
+  pivot_longer(cols = c("teacher_training_classroom_management",
+                        "teacher_training_discipline_policies", 
+                        "teacher_training_safety_procedures",
+                        "teacher_training_early_warning_signs_for_violent_behavior",
+                        "teacher_training_positive_behavioral_intervention"),
+    names_to = "training",
+    names_prefix = "teacher_training_",
+    values_to = "status")
 
+ggplot(tt_oss, aes(x = training, y = total_discipline_actions, fill = status), 
+           position = "dodge") +
+  geom_boxplot() +
+  ylim(0, 1000) +
+  theme_minimal() +
+  labs(x = "Teacher Training Category", 
+       y = "Total Number of Outshool Suspension",
+       title = "Relationship Between Teacher Training and Student Suspension",
+       tag = "(5)",
+       fill = "Training") +
+  coord_flip()
+# (0, 1000)?
+
+```
 
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
