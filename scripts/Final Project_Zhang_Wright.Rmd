@@ -80,7 +80,7 @@ safe <- import(here("data", "2006_school_safety.sav"),
   characterize() %>% 
   janitor::clean_names() 
 
-library(knitr)
+library(knitr) # Thuy: you may want to put all library in the first code chunk
 library(kableExtra)
 
 ```
@@ -108,6 +108,8 @@ tidy_disc %>%
                                   labels = c(disc_rec = "Disciplinary Actions Reported",
                                              inc_rec = "Incidents Reported", 
                                              inc_rep_po = "Incidents Reported to Police")))
+
+# Thuy: I can see that the above line returns "Error in factor(discipline_type, levels = c(disc_rec, inc_rec, inc_rep_po), object 'disc_rec' not found" ==> this is probaly because you already pivot it in the earlier code line. That means disc_rec is no longer in your tidy_disc data. 
 
 
 head(tidy_disc)
