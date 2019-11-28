@@ -112,6 +112,7 @@ ggplot(tidy_disc1, aes(urbanicity)) +
                                                            "Incidents Recorded",
                                                            "Incidents Reported to Police",
                                                            "Out of School Suspensions")) +
+  theme(axis.text.x = element_text(angle = 45)) +
   labs(x = "School Urbanicity Level",
        y = "Total Disciplinary Actions",
        title = "Number of Disciplinary Actions by School Urbanicity and Level for Schools That Did Not Provide Any Form
@@ -128,6 +129,7 @@ ggplot(tidy_disc1, aes(minority_percentage)) +
                                                            "Incidents Recorded",
                                                            "Incidents Reported to Police",
                                                            "Out of School Suspensions")) +
+  theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Minority Percentage",
        y = "Total Disciplinary Actions",
        title = "Number of Disciplinary Actions by School Minority Percentage and Enrollment Size for Schools That Did Not Provide Any Form
@@ -138,7 +140,7 @@ ggplot(tidy_disc1, aes(minority_percentage)) +
 
 ```{r descriptives tidydisc1}
 knitr::kable(tidy_disc1,
-             caption = "Statistics for the Dataset, tidy_disc1")
+             caption = "Statistics for Schools Without Teacher Training and Above Average Total Disciplinary Actions")
 
 tidy_table1 <- tidy_disc1 %>% 
   group_by(school_id, urbanicity, level, minority_percentage, enrollment) %>% 
@@ -168,6 +170,7 @@ ggplot(tidy_disc2, aes(disciplinary_actions_recorded, incidents_recorded)) +
                                                                "5 to 20 Percent",
                                                                "20 to 50 Percent",
                                                                "50 Percent or More")) +
+  theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Total Disciplinary Actions Recorded",
        y = "Total Incidents Recorded",
        title = "Relationship of Total Disciplinary Actions Recorded and Total Incidents Recorded by School Enrollment and Minority Percentage",
@@ -179,6 +182,7 @@ ggplot(tidy_disc2, aes(incidents_reported_to_police, out_of_school_suspensions))
   geom_point(aes(color = urbanicity), position = "jitter") +
   facet_wrap(~level, nrow = 1) +
   theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Total Disciplinary Actions Recorded",
        y = "Total Incidents Recorded",
        title = "Relationship of Total Incidents Reported to Police and Total Out of School Suspensions by School Level and Urbanicity",
@@ -188,7 +192,7 @@ ggplot(tidy_disc2, aes(incidents_reported_to_police, out_of_school_suspensions))
 
 ```{r descriptives tidydisc2}
 knitr::kable(tidy_disc2,
-             caption = "Statistics for the Dataset, tidy_disc2") 
+             caption = "Statistics for for Schools Without Teacher Training and Above Average Total Disciplinary Actions") 
 
 tidy_table2 <- tidy_disc2 %>% 
   group_by(school_id, total_discipline_actions, incidents_recorded, incidents_reported_to_police, out_of_school_suspensions) %>% 
@@ -220,7 +224,7 @@ mod2_summary <- safe_organized %>%
   summarize(total_discipline_actions = sum(total_discipline_actions))
 
 
-apa_table(mod1_summary, 
+apa_table(mod2_summary, 
           caption = "Linear Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment and Level")
 
 
@@ -232,6 +236,10 @@ mod3_summary <- safe_organized %>%
   group_by(urbanicity, enrollment, level, minority_percentage) %>% 
   summarize(total_discipline_actions = sum(total_discipline_actions)) %>% 
   na.omit()
+
+apa_table(mod3_summary, 
+          caption = "Linear Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment, Level, and Minority Percentage")
+
 
 ```
 
@@ -253,6 +261,7 @@ ggplot(safe_organized) +
            position = "dodge") +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "School Urbanness Category with Fill of School Level Faceted by School Enrollment", 
        y = "Total",
        title = "Number of Schools per Urban Category and Level",
@@ -263,7 +272,7 @@ ggplot(safe_organized, aes(out_of_school_suspensions, disciplinary_actions_recor
   geom_smooth() +
   theme_minimal() +
   labs(x = "Total Number of Out of School Suspensions", 
-       y = "Total Number Disciplinary Actions Reported to School Administration",
+       y = "Total Number Disciplinary Actions",
        title = "Relationship Between Out of School Suspensions and Reported Disciplinary Actions",
        tag = "(7)",
        fill = "School Enrollment")
@@ -273,8 +282,9 @@ ggplot(safe_organized) +
            position = "dodge") +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "School Urbanness Category", 
-       y = "Number of Schools That Provide Teacher Training on Classroom Management",
+       y = "Number of Schools",
        title = "The Provision of Teacher Training on Classroom Management by Urbanness and Enrollment of School",
        tag = "(8)",
        fill = "Classroom Management 
@@ -285,12 +295,14 @@ ggplot(safe_organized) +
            position = "dodge") +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "School Urbanness Category", 
-       y = "Number of Schools That Provide Teacher Training on Positive Behavioral Intervention",
+       y = "Number of Schools",
        title = "The Provision of Teacher Training on Classroom Management by Urbanness and Enrollment of School",
        tag = "(9)",
-       fill = "Classroom Management 
-Positive Behavioral Intervention")
+       fill = "Positive 
+Behavioral 
+Intervention")
 
 ```
 
@@ -318,6 +330,17 @@ ggplot(tt_oss, aes(x = training, y = total_discipline_actions, fill = status),
   coord_flip()
 # (0, 1000)?
 
+
+mod4 <- lm(total_discipline_actions ~ training, data = tt_oss)
+  
+summary(mod4)
+
+mod4_summary <- tt_oss %>% 
+  group_by(training) %>% 
+  summarize(total_discipline_actions = sum(total_discipline_actions))
+
+apa_table(mod4_summary, 
+          caption = "Linear Regression Results displaying Total Disciplinary Actions Predicted by Provision of Type of Teacher Training")
 ```
 
 # Methods
