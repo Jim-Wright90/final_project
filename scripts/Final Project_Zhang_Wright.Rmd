@@ -104,8 +104,8 @@ tidy_disc1 <- safe_organized %>%
 
 ```{r plots-tidydisc1}
 
-ggplot(tidy_disc1, aes(urbanicity)) +
-  geom_bar(stat = "count", position = "dodge", fill = "blue") +
+ggplot(tidy_disc1, aes(urbanicity, total_discipline_actions)) +
+  geom_col(position = "dodge", fill = "blue") +
   facet_wrap(~level, nrow = 1) +
   theme_minimal() +
   scale_fill_discrete(name = "Discipline Type", labels = c("Disciplinary Actions Recorded", 
@@ -121,8 +121,8 @@ ggplot(tidy_disc1, aes(urbanicity)) +
        fill = "School Level")
   
 
-ggplot(tidy_disc1, aes(minority_percentage)) +
-  geom_bar(stat = "count", position = "dodge", fill = "blue") +
+ggplot(tidy_disc1, aes(minority_percentage, total_discipline_actions)) +
+  geom_col(position = "dodge", fill = "blue") +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
   scale_fill_discrete(name = "Discipline Type", labels = c("Disciplinary Actions Recorded", 
@@ -213,7 +213,7 @@ mod1_summary <- safe_organized %>%
   summarize(total_discipline_actions = sum(total_discipline_actions))
 
 apa_table(mod1_summary, 
-          caption = "Linear Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment")
+          caption = "Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment")
 
 mod2 <- lm(total_discipline_actions ~ urbanicity + enrollment + level, data = safe_organized)
 
@@ -225,7 +225,7 @@ mod2_summary <- safe_organized %>%
 
 
 apa_table(mod2_summary, 
-          caption = "Linear Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment and Level")
+          caption = "Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment and Level")
 
 
 mod3 <- lm(total_discipline_actions ~ urbanicity + enrollment + level + minority_percentage, data = safe_organized)
@@ -238,7 +238,7 @@ mod3_summary <- safe_organized %>%
   na.omit()
 
 apa_table(mod3_summary, 
-          caption = "Linear Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment, Level, and Minority Percentage")
+          caption = "Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment, Level, and Minority Percentage")
 
 
 ```
@@ -340,7 +340,7 @@ mod4_summary <- tt_oss %>%
   summarize(total_discipline_actions = sum(total_discipline_actions))
 
 apa_table(mod4_summary, 
-          caption = "Linear Regression Results displaying Total Disciplinary Actions Predicted by Provision of Type of Teacher Training")
+          caption = "Regression Results displaying Total Disciplinary Actions Predicted by Provision of Type of Teacher Training")
 ```
 
 # Methods
