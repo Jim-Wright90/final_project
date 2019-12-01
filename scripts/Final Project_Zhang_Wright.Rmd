@@ -229,7 +229,7 @@ apa_table(mod2_summary,
 
 
 mod3 <- lm(total_discipline_actions ~ urbanicity + enrollment + level + minority_percentage, data = safe_organized)
-summary(mod2)
+summary(mod3)
 
 
 mod3_summary <- safe_organized %>% 
@@ -250,7 +250,7 @@ ggplot(safe_organized) +
   geom_bar(aes(urbanicity, fill = level),
            position = "dodge") +
   theme_minimal() +
-  labs(x = "School Urbanness Category with Fill of School Level", 
+  labs(x = "School Urbanicity Category with Fill of School Level", 
        y = "Total",
        title = "Number of Schools per Urbanicity and Level",
        tag = "(5)",
@@ -262,7 +262,7 @@ ggplot(safe_organized) +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(x = "School Urbanness Category with Fill of School Level Faceted by School Enrollment", 
+  labs(x = "School Urbanicity Category with Fill of School Level Faceted by School Enrollment", 
        y = "Total",
        title = "Number of Schools per Urban Category and Level",
        tag = "(6)")
@@ -283,7 +283,7 @@ ggplot(safe_organized) +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(x = "School Urbanness Category", 
+  labs(x = "School Urbanicity Category", 
        y = "Number of Schools",
        title = "The Provision of Teacher Training on Classroom Management by Urbanness and Enrollment of School",
        tag = "(8)",
@@ -296,9 +296,9 @@ ggplot(safe_organized) +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(x = "School Urbanness Category", 
+  labs(x = "School Urbanicity Category", 
        y = "Number of Schools",
-       title = "The Provision of Teacher Training on Classroom Management by Urbanness and Enrollment of School",
+       title = "The Provision of Teacher Training on Positive Behavioral Intervention by Urbanness and Enrollment of School",
        tag = "(9)",
        fill = "Positive 
 Behavioral 
