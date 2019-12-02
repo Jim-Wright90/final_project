@@ -323,10 +323,11 @@ ggplot(tt_oss, aes(x = training, y = total_discipline_actions, fill = status),
   geom_boxplot() +
   ylim(0, 1000) +
   theme_minimal() +
+   theme(plot.title = element_text(color = "blue", size = 12, face = "bold", hjust = 0.5)) +
   labs(x = "Teacher Training Category", 
        y = "Total Number of Outshool Suspension",
-       title = "Relationship Between Teacher Training and Student Suspension",
-       tag = "(5)",
+       title = "Relationship Between Teacher Training \nand Student Suspension",
+       tag = "(10)",
        fill = "Training") +
   coord_flip()
 # (0, 1000)?
