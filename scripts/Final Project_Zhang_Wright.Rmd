@@ -108,6 +108,7 @@ ggplot(tidy_disc1, aes(urbanicity, total_discipline_actions)) +
   geom_col(position = "dodge", fill = "blue") +
   facet_wrap(~level, nrow = 1) +
   theme_minimal() +
+  theme(plot.title = element_text(color = "red", size = 12, face = "bold", hjust = 0.5)) +
   scale_fill_discrete(name = "Discipline Type", labels = c("Disciplinary Actions Recorded", 
                                                            "Incidents Recorded",
                                                            "Incidents Reported to Police",
@@ -115,8 +116,7 @@ ggplot(tidy_disc1, aes(urbanicity, total_discipline_actions)) +
   theme(axis.text.x = element_text(angle = 45)) +
   labs(x = "School Urbanicity Level",
        y = "Total Disciplinary Actions",
-       title = "Number of Disciplinary Actions by School Urbanicity and Level for Schools That Did Not Provide Any Form
-                of Teacher Training and Reported More Than the Average Number of Disciplinary Actions",
+       title = "Disciplinary Actions by School Urbanicity and Level \nWhere No Form of Teacher Training was Provided",
        tage = "(1)", 
        fill = "School Level")
   
@@ -130,10 +130,10 @@ ggplot(tidy_disc1, aes(minority_percentage, total_discipline_actions)) +
                                                            "Incidents Reported to Police",
                                                            "Out of School Suspensions")) +
   theme(axis.text.x = element_text(angle = 90)) +
+  theme(plot.title = element_text(color = "red", size = 9, face = "bold", hjust = 0.5)) +
   labs(x = "Minority Percentage",
        y = "Total Disciplinary Actions",
-       title = "Number of Disciplinary Actions by School Minority Percentage and Enrollment Size for Schools That Did Not Provide Any Form
-       of Teacher Training and Reported More Than the Average Number of Disciplinary Actions",
+       title = "Disciplinary Actions by School Enrollment and Minority Percentage \nWhere No Form of Teacher Training was Provided",
        tage = "(2)",
        fill = "Total Enrollment")  
 ```
@@ -171,9 +171,10 @@ ggplot(tidy_disc2, aes(disciplinary_actions_recorded, incidents_recorded)) +
                                                                "20 to 50 Percent",
                                                                "50 Percent or More")) +
   theme(axis.text.x = element_text(angle = 90)) +
+  theme(plot.title = element_text(color = "red", size = 12, face = "bold", hjust = 0.5)) +
   labs(x = "Total Disciplinary Actions Recorded",
        y = "Total Incidents Recorded",
-       title = "Relationship of Total Disciplinary Actions Recorded and Total Incidents Recorded by School Enrollment and Minority Percentage",
+       title = "Relationship of Total Disciplinary Actions Recorded \nand Total Incidents Recorded \nby School Enrollment and Minority Percentage",
        tage = "(3)",
        fill = "School Enrollment")
 
@@ -185,7 +186,7 @@ ggplot(tidy_disc2, aes(incidents_reported_to_police, out_of_school_suspensions))
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Total Disciplinary Actions Recorded",
        y = "Total Incidents Recorded",
-       title = "Relationship of Total Incidents Reported to Police and Total Out of School Suspensions by School Level and Urbanicity",
+       title = "Relationship of Total Incidents Reported \nto Police and Total Out of School Suspensions \nby School Level and Urbanicity",
        tage = "(4)",
        fill = "School Level")
 ```
@@ -271,9 +272,10 @@ ggplot(safe_organized, aes(out_of_school_suspensions, disciplinary_actions_recor
   geom_point(aes(color = enrollment), position = "jitter") +
   geom_smooth() +
   theme_minimal() +
+  theme(plot.title = element_text(color = "red", size = 10, face = "bold", hjust = 0.5)) +
   labs(x = "Total Number of Out of School Suspensions", 
        y = "Total Number Disciplinary Actions",
-       title = "Relationship Between Out of School Suspensions and Reported Disciplinary Actions",
+       title = "Relationship Between Out of School Suspensions and \nReported Disciplinary Actions",
        tag = "(7)",
        fill = "School Enrollment")
 
@@ -283,26 +285,25 @@ ggplot(safe_organized) +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90)) +
+  theme(plot.title = element_text(color = "blue", size = 12, face = "bold", hjust = 0.5)) +
   labs(x = "School Urbanicity Category", 
        y = "Number of Schools",
-       title = "The Provision of Teacher Training on Classroom Management by Urbanness and Enrollment of School",
+       title = "The Provision of Teacher Training \non Classroom Management \nby School Urbanicity and Enrollment",
        tag = "(8)",
-       fill = "Classroom Management 
-       Teacher Training")
+       fill = "Classroom \nManagement \nTeacher Training")
 
 ggplot(safe_organized) +
   geom_bar(aes(x = urbanicity, fill = teacher_training_positive_behavioral_intervention), 
            position = "dodge") +
   facet_wrap(~enrollment, nrow = 1) +
   theme_minimal() +
+  theme(plot.title = element_text(color = "blue", size = 12, face = "bold", hjust = 0.5)) +
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "School Urbanicity Category", 
        y = "Number of Schools",
-       title = "The Provision of Teacher Training on Positive Behavioral Intervention by Urbanness and Enrollment of School",
+       title = "The Provision of Teacher Training \n on Positive Behavioral Intervention \n by Urbanness and Enrollment of School",
        tag = "(9)",
-       fill = "Positive 
-Behavioral 
-Intervention")
+       fill = "Positive \nBehavioral \nIntervention")
 
 ```
 
