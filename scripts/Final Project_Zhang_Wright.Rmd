@@ -37,8 +37,6 @@ editor_options:
 ---
 
 ```{r setup, include = FALSE}
-#I cleaned up your libraries (I got rid of janitor since you called it directly in the second code chunk)
-#I didn't see you use datapasta, knitr, or kableExtra but maybe you intend to use them later?
 library(rio)
 library(here)
 library(tidyverse)
@@ -103,7 +101,6 @@ tidy_disc1 <- safe_organized %>%
 ```
 
 ```{r plots-tidydisc1}
-
 ggplot(tidy_disc1, aes(urbanicity, total_discipline_actions)) +
   geom_col(position = "dodge", fill = "blue") +
   facet_wrap(~level, nrow = 1) +
@@ -136,6 +133,29 @@ ggplot(tidy_disc1, aes(minority_percentage, total_discipline_actions)) +
        title = "Disciplinary Actions by School Enrollment and Minority Percentage \nWhere No Form of Teacher Training was Provided",
        tage = "(2)",
        fill = "Total Enrollment")  
+
+tidy_new <- tidy_disc1 %>% 
+  mutate(minority_percentage = factor(minority_percentage,
+                           levels = c("5 to 20 percent",
+                                      "NA",
+                                      "20 to 5 percent",
+                                      "50 percent or more",
+                                      "Less than 5 percent")))
+
+ggplot(tidy_new, aes(minority_percentage, total_discipline_actions)) +
+  geom_col(position = "dodge", fill = "blue") +
+  theme_minimal() +
+  scale_fill_discrete(name = "Discipline Type", labels = c("Disciplinary Actions Recorded", 
+                                                           "Incidents Recorded",
+                                                           "Incidents Reported to Police",
+                                                           "Out of School Suspensions")) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(plot.title = element_text(color = "red", size = 9, face = "bold", hjust = 0.5)) +
+  labs(x = "Minority Percentage",
+       y = "Total Disciplinary Actions",
+       title = "Disciplinary Actions by Minority Percentage \nWhere No Form of Teacher Training was Provided",
+       tage = "(2.5)")  
+
 ```
 
 ```{r descriptives tidydisc1}
