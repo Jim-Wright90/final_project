@@ -35,7 +35,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r setup, include = FALSE}
+```{r setup, include=FALSE}
 library(rio)
 library(here)
 library(tidyverse)
@@ -90,7 +90,7 @@ opts_chunk$set(echo = FALSE,
 
 	The final code chunk was produced in R Markdown to explore the relationship between the provision of teacher training and OSS.  The pivot_longer() function was utilized to identify and visualize the provision of the individual type of teacher training per school.  Plot 11 displays the findings of this code. 
 
-```{r load data and filter data}
+```{r load data and filter data, include=FALSE}
 
 safe <- import(here("data", "2006_school_safety.sav"),
                setclass = "tbl_df") %>% 
@@ -122,7 +122,7 @@ mean_discipline_actions <- safe_organized %>%
 ```
 
 
-``` {r tidy-data1}
+``` {r tidy-data1, include=FALSE}
 
 tidy_disc1 <- safe_organized %>% 
   pivot_longer(
@@ -139,7 +139,7 @@ tidy_disc1 <- safe_organized %>%
 
 ```
 
-```{r plots-tidydisc1}
+```{r plots-tidydisc1, include=TRUE}
 ggplot(tidy_disc1, aes(urbanicity, total_discipline_actions)) +
   geom_col(position = "dodge", fill = "blue") +
   facet_wrap(~level, nrow = 1) +
@@ -197,30 +197,30 @@ ggplot(tidy_new, aes(minority_percentage, total_discipline_actions)) +
 
 ```
 
-```{r descriptives tidydisc1}
-knitr::kable(tidy_disc1,
-             caption = "Statistics for Schools Without Teacher Training and Above Average Total Disciplinary Actions")
-
+```{r, tidydisc1, include=FALSE}
 tidy_table1 <- tidy_disc1 %>% 
   group_by(school_id, urbanicity, level, minority_percentage, enrollment) %>% 
   summarize(sum(total_discipline_actions))
+```
+
+```{r, descriptives tidydisc1, include=TRUE}
+knitr::kable(tidy_disc1,
+             caption = "Statistics for Schools Without Teacher Training and Above Average Total Disciplinary Actions")
 
 apa_table(tidy_table1, 
           caption = "Total Disciplinary Actions for Schools Not Providing Any Form of Teacher Training by School Category")
 
 ```
 
-```{r tidy-data2}
-
+```{r, wider, include=FALSE}
 tidy_disc2 <- tidy_disc1 %>% 
   pivot_wider(
     names_from = "discipline_type",
     values_from = "total"
   )
-
 ```
 
-```{r plots-tidydisc2}
+```{r plots-tidydisc2, include=TRUE}
 ggplot(tidy_disc2, aes(disciplinary_actions_recorded, incidents_recorded)) +
   geom_point(aes(color = minority_percentage), position = "jitter") +
   facet_wrap(~enrollment, nrow = 1) +
@@ -250,19 +250,21 @@ ggplot(tidy_disc2, aes(incidents_reported_to_police, out_of_school_suspensions))
        fill = "School Level")
 ```
 
-```{r descriptives tidydisc2}
-knitr::kable(tidy_disc2,
-             caption = "Statistics for for Schools Without Teacher Training and Above Average Total Disciplinary Actions") 
-
+```{r table, tidydisc2, include=FALSE}
 tidy_table2 <- tidy_disc2 %>% 
   group_by(school_id, total_discipline_actions, incidents_recorded, incidents_reported_to_police, out_of_school_suspensions) %>% 
   summarize(sum(total_discipline_actions))
+```
+
+```{r descriptives tidydisc2, include=TRUE}
+knitr::kable(tidy_disc2,
+             caption = "Statistics for for Schools Without Teacher Training and Above Average Total Disciplinary Actions") 
 
 apa_table(tidy_table2, 
           caption = "Total Disciplinary Actions for Schools Not Providing Any Form of Teacher Training by Specific Form of Discipline")
 ```
 
-```{r models safe_organized_all selected data}
+```{r models safe_organized_all selected data, include=FALSE}
 
 mod1 <- lm(total_discipline_actions ~ urbanicity + enrollment, data = safe_organized)
   
@@ -272,8 +274,6 @@ mod1_summary <- safe_organized %>%
   group_by(urbanicity, enrollment) %>% 
   summarize(total_discipline_actions = sum(total_discipline_actions))
 
-apa_table(mod1_summary, 
-          caption = "Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment")
 
 mod2 <- lm(total_discipline_actions ~ urbanicity + enrollment + level, data = safe_organized)
 
@@ -282,10 +282,6 @@ summary(mod2)
 mod2_summary <- safe_organized %>% 
   group_by(urbanicity, enrollment, level) %>% 
   summarize(total_discipline_actions = sum(total_discipline_actions))
-
-
-apa_table(mod2_summary, 
-          caption = "Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment and Level")
 
 
 mod3 <- lm(total_discipline_actions ~ urbanicity + enrollment + level + minority_percentage, data = safe_organized)
@@ -297,13 +293,21 @@ mod3_summary <- safe_organized %>%
   summarize(total_discipline_actions = sum(total_discipline_actions)) %>% 
   na.omit()
 
+```
+
+```{r model tables, include=TRUE}
+apa_table(mod1_summary, 
+          caption = "Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment")
+
+apa_table(mod2_summary, 
+          caption = "Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment and Level")
+
 apa_table(mod3_summary, 
           caption = "Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment, Level, and Minority Percentage")
 
-
 ```
 
-```{r descriptives all selected data}
+```{r descriptives all selected data, include=TRUE}
 summary(safe_organized)
 
 ggplot(safe_organized) +
@@ -366,7 +370,7 @@ ggplot(safe_organized) +
 
 ```
 
-```{r, relationship between teacher training and student suspension, include=TRUE}
+```{r, relationship between teacher training and student suspension, include=FALSE}
 tt_oss <- safe_organized %>% 
   pivot_longer(cols = c("teacher_training_classroom_management",
                         "teacher_training_discipline_policies", 
@@ -377,6 +381,16 @@ tt_oss <- safe_organized %>%
     names_prefix = "teacher_training_",
     values_to = "status")
 
+mod4 <- lm(total_discipline_actions ~ training, data = tt_oss)
+  
+summary(mod4)
+
+mod4_summary <- tt_oss %>% 
+  group_by(training) %>% 
+  summarize(total_discipline_actions = sum(total_discipline_actions))
+```
+
+```{r, teacher training suspension visuals, include=TRUE}
 ggplot(tt_oss, aes(x = training, y = total_discipline_actions, fill = status), 
            position = "dodge") +
   geom_boxplot() +
@@ -389,19 +403,10 @@ ggplot(tt_oss, aes(x = training, y = total_discipline_actions, fill = status),
        tag = "(11)",
        fill = "Training") +
   coord_flip()
-# (0, 1000)?
-
-
-mod4 <- lm(total_discipline_actions ~ training, data = tt_oss)
-  
-summary(mod4)
-
-mod4_summary <- tt_oss %>% 
-  group_by(training) %>% 
-  summarize(total_discipline_actions = sum(total_discipline_actions))
 
 apa_table(mod4_summary, 
           caption = "Regression Results displaying Total Disciplinary Actions Predicted by Provision of Type of Teacher Training")
+
 ```
 
 # Results
@@ -447,7 +452,7 @@ apa_table(mod4_summary,
   The disparity in student discipline across such categorical variables as urbanicity, enrollment, and minority status aligns with concerns that has been previously identified in the literature [@han2011].  Future studies should investigate the nature of discipline policy in more at risk schools to ensure specific groups of students are not over-targeted for disciplinary action. 
   
   
-```{r descriptive counts}  
+```{r descriptive counts, include = FALSE}  
 
 #calculations to include in the document. Can remove prior to turning in 
 safe_organized %>% 
