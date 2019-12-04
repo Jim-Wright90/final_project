@@ -204,9 +204,6 @@ tidy_table1 <- tidy_disc1 %>%
 ```
 
 ```{r, descriptives tidydisc1, include=TRUE}
-knitr::kable(tidy_disc1,
-             caption = "Statistics for Schools Without Teacher Training and Above Average Total Disciplinary Actions")
-
 apa_table(tidy_table1, 
           caption = "Total Disciplinary Actions for Schools Not Providing Any Form of Teacher Training by School Category")
 
@@ -257,9 +254,6 @@ tidy_table2 <- tidy_disc2 %>%
 ```
 
 ```{r descriptives tidydisc2, include=TRUE}
-knitr::kable(tidy_disc2,
-             caption = "Statistics for for Schools Without Teacher Training and Above Average Total Disciplinary Actions") 
-
 apa_table(tidy_table2, 
           caption = "Total Disciplinary Actions for Schools Not Providing Any Form of Teacher Training by Specific Form of Discipline")
 ```
