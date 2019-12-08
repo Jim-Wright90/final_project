@@ -1,24 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.27)  8 DEC 2019 13:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.27)  8 DEC 2019 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Final-Project_Zhang_Wright.tex
-(./Final-Project_Zhang_Wright.tex
+**111.tex
+(./111.tex
 LaTeX2e <2019-10-01> patch level 3
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/apa6/apa6.cls
 Document Class: apa6 2018/09/01 v2.33 APA formatting (6th edition)
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/10/25 v1.4k Standard LaTeX document class
-(c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fleqn.clo
-File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
-\mathindent=\dimen102
-Applying: [2015/01/01] Make \[ robust on input line 50.
-LaTeX Info: Redefining \[ on input line 51.
-Already applied: [0000/00/00] Make \[ robust on input line 62.
-Applying: [2015/01/01] Make \] robust on input line 74.
-LaTeX Info: Redefining \] on input line 75.
-Already applied: [0000/00/00] Make \] robust on input line 83.
-) (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
+(c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2019/10/25 v1.4k Standard LaTeX file (size option)
 )
 \c@part=\count80
@@ -31,7 +22,7 @@ File: size12.clo 2019/10/25 v1.4k Standard LaTeX file (size option)
 \c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
-\bibindent=\dimen103
+\bibindent=\dimen102
 )
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.
 sty
@@ -104,14 +95,14 @@ Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 \Gm@cnth=\count89
 \Gm@cntv=\count90
 \c@Gm@tempcnt=\count91
-\Gm@bindingoffset=\dimen104
-\Gm@wd@mp=\dimen105
-\Gm@odd@mp=\dimen106
-\Gm@even@mp=\dimen107
-\Gm@layoutwidth=\dimen108
-\Gm@layoutheight=\dimen109
-\Gm@layouthoffset=\dimen110
-\Gm@layoutvoffset=\dimen111
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
 )
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.
@@ -134,29 +125,29 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 x.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen112
-\Gin@req@width=\dimen113
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
 )
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.
 sty
 Package: booktabs 2019/10/08 v1.6180339 publication quality tables
-\heavyrulewidth=\dimen114
-\lightrulewidth=\dimen115
-\cmidrulewidth=\dimen116
-\belowrulesep=\dimen117
-\belowbottomsep=\dimen118
-\aboverulesep=\dimen119
-\abovetopsep=\dimen120
-\cmidrulesep=\dimen121
-\cmidrulekern=\dimen122
-\defaultaddspace=\dimen123
+\heavyrulewidth=\dimen113
+\lightrulewidth=\dimen114
+\cmidrulewidth=\dimen115
+\belowrulesep=\dimen116
+\belowbottomsep=\dimen117
+\aboverulesep=\dimen118
+\abovetopsep=\dimen119
+\cmidrulesep=\dimen120
+\cmidrulekern=\dimen121
+\defaultaddspace=\dimen122
 \@cmidla=\count92
 \@cmidlb=\count93
-\@aboverulesep=\dimen124
-\@belowrulesep=\dimen125
+\@aboverulesep=\dimen123
+\@belowrulesep=\dimen124
 \@thisruleclass=\count94
 \@lastruleclass=\count95
-\@thisrulewidth=\dimen126
+\@thisrulewidth=\dimen125
 )
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/thr
 eeparttable.sty
@@ -182,13 +173,13 @@ Package: caption 2019/10/18 v3.4a Customizing captions (AR)
 ty
 Package: caption3 2019/09/09 v1.8e caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
-\captionmargin=\dimen127
-\captionmargin@=\dimen128
-\captionwidth=\dimen129
-\caption@tempdima=\dimen130
-\caption@indent=\dimen131
-\caption@parindent=\dimen132
-\caption@hangindent=\dimen133
+\captionmargin=\dimen126
+\captionmargin@=\dimen127
+\captionwidth=\dimen128
+\caption@tempdima=\dimen129
+\caption@indent=\dimen130
+\caption@parindent=\dimen131
+\caption@hangindent=\dimen132
 Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count96
@@ -262,12 +253,12 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
-\ex@=\dimen134
+\ex@=\dimen133
 ))
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 LaTeX Info: Redefining \boldsymbol on input line 28.
-\pmbraise@=\dimen135
+\pmbraise@=\dimen134
 )
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
@@ -284,7 +275,7 @@ LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
 \Mathstrutbox@=\box29
 \strutbox@=\box30
-\big@size=\dimen136
+\big@size=\dimen135
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \macc@depth=\count109
@@ -297,12 +288,12 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \column@=\count114
 \maxfields@=\count115
 \andhelp@=\toks19
-\eqnshift@=\dimen137
-\alignsep@=\dimen138
-\tagshift@=\dimen139
-\tagwidth@=\dimen140
-\totwidth@=\dimen141
-\lineht@=\dimen142
+\eqnshift@=\dimen136
+\alignsep@=\dimen137
+\tagshift@=\dimen138
+\tagwidth@=\dimen139
+\totwidth@=\dimen140
+\lineht@=\dimen141
 \@envbody=\toks20
 \multlinegap=\skip66
 \multlinetaggap=\skip67
@@ -557,7 +548,7 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 .sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen143
+\@linkdim=\dimen142
 \Hy@linkcounter=\count116
 \Hy@pagecounter=\count117
 
@@ -590,7 +581,7 @@ Package hyperref Info: Bookmarks ON on input line 4788.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5147.
-\XeTeXLinkMargin=\dimen144
+\XeTeXLinkMargin=\dimen143
 
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/bitset.
 sty
@@ -602,8 +593,8 @@ Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count120
-\Field@Width=\dimen145
-\Fld@charsize=\dimen146
+\Field@Width=\dimen144
+\Fld@charsize=\dimen145
 Package hyperref Info: Hyper figures OFF on input line 6418.
 Package hyperref Info: Link nesting OFF on input line 6423.
 Package hyperref Info: Hyper index ON on input line 6426.
@@ -701,7 +692,7 @@ Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LTpre=\skip71
 \LTpost=\skip72
 \LTchunksize=\count132
-\LTcapwidth=\dimen147
+\LTcapwidth=\dimen146
 \LT@head=\box31
 \LT@firsthead=\box32
 \LT@foot=\box33
@@ -722,25 +713,25 @@ Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip73
 \multirow@cntb=\count137
 \multirow@dima=\skip74
-\bigstrutjot=\dimen148
+\bigstrutjot=\dimen147
 )
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen149
+\col@sep=\dimen148
 \ar@mcellbox=\box35
-\extrarowheight=\dimen150
+\extrarowheight=\dimen149
 \NC@list=\toks26
 \extratabsurround=\skip75
 \backup@length=\skip76
 \ar@cellbox=\box36
 )
-\TX@col@width=\dimen151
-\TX@old@table=\dimen152
-\TX@old@col=\dimen153
-\TX@target=\dimen154
-\TX@delta=\dimen155
+\TX@col@width=\dimen150
+\TX@old@table=\dimen151
+\TX@old@col=\dimen152
+\TX@target=\dimen153
+\TX@delta=\dimen154
 \TX@cols=\count138
 \TX@ftn=\toks27
 )
@@ -761,7 +752,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \longtablewidth=\skip78
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-(./Final-Project_Zhang_Wright.aux
+(./111.aux
 
 LaTeX Warning: Label `tab:model tables' multiply defined.
 
@@ -769,33 +760,33 @@ LaTeX Warning: Label `tab:model tables' multiply defined.
 LaTeX Warning: Label `tab:model tables' multiply defined.
 
 )
-\openout1 = `Final-Project_Zhang_Wright.aux'.
+\openout1 = `111.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 112.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-14.
+12.
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-4.
+2.
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -868,7 +859,7 @@ Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box37
-Package hyperref Info: Link coloring OFF on input line 114.
+Package hyperref Info: Link coloring OFF on input line 112.
 
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
 ty
@@ -884,188 +875,269 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count139
 )
-LaTeX Info: Redefining \ref on input line 114.
-LaTeX Info: Redefining \pageref on input line 114.
-LaTeX Info: Redefining \nameref on input line 114.
-(./Final-Project_Zhang_Wright.out) (./Final-Project_Zhang_Wright.out)
+LaTeX Info: Redefining \ref on input line 112.
+LaTeX Info: Redefining \pageref on input line 112.
+LaTeX Info: Redefining \nameref on input line 112.
+(./111.out) (./111.out)
 \@outlinefile=\write5
-\openout5 = `Final-Project_Zhang_Wright.out'.
+\openout5 = `111.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-16.
+14.
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-16.
+14.
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-116.
+114.
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-116.
+114.
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 116.
+(Font)              <12> on input line 114.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 116.
+(Font)              <8> on input line 114.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 116.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 116
+(Font)              <6> on input line 114.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 114
 .
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 116
+LaTeX Font Info:    Trying to load font information for U+msb on input line 114
 .
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{c:/Users/clair/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/p
 dftex.map}
 
-] [2] [3] [4] [5]
-<Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-1.pdf, id=114, 4
-69.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-1.pdf Graph
-ic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-1.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/plots-ti
-dydisc1-1.pdf  used on input line 164.
+] [2]
+Underfull \vbox (badness 3612) has occurred while \output is active []
+
+[3] [4] [5]
+<111_files/figure-latex/plots-tidydisc1-1.pdf, id=114, 469.755pt x 578.16pt>
+File: 111_files/figure-latex/plots-tidydisc1-1.pdf Graphic file (type pdf)
+<use 111_files/figure-latex/plots-tidydisc1-1.pdf>
+Package pdftex.def Info: 111_files/figure-latex/plots-tidydisc1-1.pdf  used on 
+input line 162.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-2.pdf, id=115, 4
-69.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-2.pdf Graph
-ic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-2.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/plots-ti
-dydisc1-2.pdf  used on input line 164.
+<111_files/figure-latex/plots-tidydisc1-2.pdf, id=115, 469.755pt x 578.16pt>
+File: 111_files/figure-latex/plots-tidydisc1-2.pdf Graphic file (type pdf)
+<use 111_files/figure-latex/plots-tidydisc1-2.pdf>
+Package pdftex.def Info: 111_files/figure-latex/plots-tidydisc1-2.pdf  used on 
+input line 162.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-3.pdf, id=116, 4
-69.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-3.pdf Graph
-ic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-3.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/plots-ti
-dydisc1-3.pdf  used on input line 164.
+<111_files/figure-latex/plots-tidydisc1-3.pdf, id=116, 469.755pt x 578.16pt>
+File: 111_files/figure-latex/plots-tidydisc1-3.pdf Graphic file (type pdf)
+<use 111_files/figure-latex/plots-tidydisc1-3.pdf>
+Package pdftex.def Info: 111_files/figure-latex/plots-tidydisc1-3.pdf  used on 
+input line 162.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 164--165
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 162--163
 [][] 
  []
 
-[6] [7 <./Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-1.pdf>]
-\openout3 = `Final-Project_Zhang_Wright.ttt'.
 
-(Final-Project_Zhang_Wright.ttt) [8 <./Final-Project_Zhang_Wright_files/figure-
-latex/plots-tidydisc1-2.pdf>]
-<Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-1.pdf, id=145, 4
-69.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-1.pdf Graph
-ic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-1.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/plots-ti
-dydisc2-1.pdf  used on input line 195.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[7 <./111_files/figure-latex/plots-tidydisc1-1.pdf>]
+\openout3 = `111.ttt'.
+
+(111.ttt)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[8 <./111_files/figure-latex/plots-tidydisc1-2.pdf>]
+<111_files/figure-latex/plots-tidydisc2-1.pdf, id=145, 469.755pt x 578.16pt>
+File: 111_files/figure-latex/plots-tidydisc2-1.pdf Graphic file (type pdf)
+<use 111_files/figure-latex/plots-tidydisc2-1.pdf>
+Package pdftex.def Info: 111_files/figure-latex/plots-tidydisc2-1.pdf  used on 
+input line 193.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-2.pdf, id=146, 4
-69.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-2.pdf Graph
-ic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-2.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/plots-ti
-dydisc2-2.pdf  used on input line 195.
+<111_files/figure-latex/plots-tidydisc2-2.pdf, id=146, 469.755pt x 578.16pt>
+File: 111_files/figure-latex/plots-tidydisc2-2.pdf Graphic file (type pdf)
+<use 111_files/figure-latex/plots-tidydisc2-2.pdf>
+Package pdftex.def Info: 111_files/figure-latex/plots-tidydisc2-2.pdf  used on 
+input line 193.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 195--196
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 193--194
 [][] 
  []
 
-[9 <./Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-3.pdf>] [10
- <./Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-1.pdf>]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[9 <./111_files/figure-latex/plots-tidydisc1-3.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[10 <./111_files/figure-latex/plots-tidydisc2-1.pdf>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-80.
+78.
 (c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [11 <./Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-2.pdf>] 
-[12] [13]
-<Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-1
-.pdf, id=187, 469.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected d
-ata-1.pdf Graphic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected da
-ta-1.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/descript
-ives all selected data-1.pdf  used on input line 646.
+) [11 <./111_files/figure-latex/plots-tidydisc2-2.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[12]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[13]
+<111_files/figure-latex/descriptives all selected data-1.pdf, id=187, 469.755pt
+ x 578.16pt>
+File: 111_files/figure-latex/descriptives all selected data-1.pdf Graphic file 
+(type pdf)
+<use 111_files/figure-latex/descriptives all selected data-1.pdf>
+Package pdftex.def Info: 111_files/figure-latex/descriptives all selected data-
+1.pdf  used on input line 644.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-2
-.pdf, id=188, 469.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected d
-ata-2.pdf Graphic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected da
-ta-2.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/descript
-ives all selected data-2.pdf  used on input line 646.
+<111_files/figure-latex/descriptives all selected data-2.pdf, id=188, 469.755pt
+ x 578.16pt>
+File: 111_files/figure-latex/descriptives all selected data-2.pdf Graphic file 
+(type pdf)
+<use 111_files/figure-latex/descriptives all selected data-2.pdf>
+Package pdftex.def Info: 111_files/figure-latex/descriptives all selected data-
+2.pdf  used on input line 644.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-3
-.pdf, id=189, 469.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected d
-ata-3.pdf Graphic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected da
-ta-3.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/descript
-ives all selected data-3.pdf  used on input line 646.
+<111_files/figure-latex/descriptives all selected data-3.pdf, id=189, 469.755pt
+ x 578.16pt>
+File: 111_files/figure-latex/descriptives all selected data-3.pdf Graphic file 
+(type pdf)
+<use 111_files/figure-latex/descriptives all selected data-3.pdf>
+Package pdftex.def Info: 111_files/figure-latex/descriptives all selected data-
+3.pdf  used on input line 644.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-4
-.pdf, id=190, 469.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected d
-ata-4.pdf Graphic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected da
-ta-4.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/descript
-ives all selected data-4.pdf  used on input line 646.
+<111_files/figure-latex/descriptives all selected data-4.pdf, id=190, 469.755pt
+ x 578.16pt>
+File: 111_files/figure-latex/descriptives all selected data-4.pdf Graphic file 
+(type pdf)
+<use 111_files/figure-latex/descriptives all selected data-4.pdf>
+Package pdftex.def Info: 111_files/figure-latex/descriptives all selected data-
+4.pdf  used on input line 644.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
-<Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-5
-.pdf, id=191, 469.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected d
-ata-5.pdf Graphic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected da
-ta-5.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/descript
-ives all selected data-5.pdf  used on input line 646.
+<111_files/figure-latex/descriptives all selected data-5.pdf, id=191, 469.755pt
+ x 578.16pt>
+File: 111_files/figure-latex/descriptives all selected data-5.pdf Graphic file 
+(type pdf)
+<use 111_files/figure-latex/descriptives all selected data-5.pdf>
+Package pdftex.def Info: 111_files/figure-latex/descriptives all selected data-
+5.pdf  used on input line 644.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 646--647
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 644--645
 [][] 
  []
 
-[14] [15 <./Final-Project_Zhang_Wright_files/figure-latex/descriptives all sele
-cted data-1.pdf>] [16 <./Final-Project_Zhang_Wright_files/figure-latex/descript
-ives all selected data-2.pdf>] [17 <./Final-Project_Zhang_Wright_files/figure-l
-atex/descriptives all selected data-3.pdf>] [18 <./Final-Project_Zhang_Wright_f
-iles/figure-latex/descriptives all selected data-4.pdf>]
-<Final-Project_Zhang_Wright_files/figure-latex/teacher training suspension visu
-als-1.pdf, id=237, 469.755pt x 578.16pt>
-File: Final-Project_Zhang_Wright_files/figure-latex/teacher training suspension
- visuals-1.pdf Graphic file (type pdf)
-<use Final-Project_Zhang_Wright_files/figure-latex/teacher training suspension 
-visuals-1.pdf>
-Package pdftex.def Info: Final-Project_Zhang_Wright_files/figure-latex/teacher 
-training suspension visuals-1.pdf  used on input line 652.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[15 <./111_files/figure-latex/descriptives all selected data-1.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[16 <./111_files/figure-latex/descriptives all selected data-2.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[17 <./111_files/figure-latex/descriptives all selected data-3.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[18 <./111_files/figure-latex/descriptives all selected data-4.pdf>]
+<111_files/figure-latex/teacher training suspension visuals-1.pdf, id=237, 469.
+755pt x 578.16pt>
+File: 111_files/figure-latex/teacher training suspension visuals-1.pdf Graphic 
+file (type pdf)
+<use 111_files/figure-latex/teacher training suspension visuals-1.pdf>
+Package pdftex.def Info: 111_files/figure-latex/teacher training suspension vis
+uals-1.pdf  used on input line 650.
 (pdftex.def)             Requested size: 469.75386pt x 578.15858pt.
 
-Overfull \hbox (28.90639pt too wide) in paragraph at lines 652--653
+Overfull \hbox (28.90639pt too wide) in paragraph at lines 650--651
 [][]  
  []
 
-[19 <./Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected 
-data-5.pdf>] [20 <./Final-Project_Zhang_Wright_files/figure-latex/teacher train
-ing suspension visuals-1.pdf>] [21] [22] [23] [24] [25] AED endfloat: Processin
-g end Figures and Tables [26] (./Final-Project_Zhang_Wright.ttt
+
+Underfull \vbox (badness 4886) has occurred while \output is active []
+
+[19 <./111_files/figure-latex/descriptives all selected data-5.pdf>]
+Overfull \hbox (6409.15636pt too wide) in paragraph at lines 686--686
+[]\T1/lmtt/m/n/12 The mean number of total disciplinary actions was determined 
+to be 159.  This value was utilized to first identify schools with total discip
+linary actions greater than this value and that did not provide any form of tea
+cher training.  A total of ten schools met the criteria.  Five of these schools
+ were coded for urbanicity as _urban fringe_, two schools were coded as _city_,
+ two were coded as _town_, and one school was coded as _rural_.  For the variab
+le of school level, five of the schools were middle schools, four were high sch
+ools, and one school was a combined high school and middle school.  For the var
+iable of minority percentage, two schools possessed a minority percentage of _5
+0 percent or more_, four possessed a minority percentage of _20 to 50 percent_,
+ two possessed a minority percentage of _5 to 20 percent_, and two schools poss
+essed minority percentages of _less than 5 percent_.  Enrollment for four of th
+e schools was coded as _1,000 or more_ students, _500 - 999_ students for three
+ of the schools, _300 - 499_ for one of the schools, and _less than 300_ studen
+ts for two of the schools.[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[20 <./111_files/figure-latex/teacher training suspension visuals-1.pdf>]
+Overfull \hbox (8601.32446pt too wide) in paragraph at lines 686--686
+[]\T1/lmtt/m/n/12 Table 1 displays the descriptive statistics for the ten schoo
+ls organized into the tidy data set.  Plot 1 displays a bar graph with school u
+rbanicity on the x-axis and the total number of disciplinary actions on the y-a
+xis.  Plot 2 is similar to plot 1 but has instead presented minority percentage
+ on the x-axis and expanded the display of Plot 1 by adding the faceting the pl
+ot by school enrollment.  The purpose of Plot 3 was to remove the facet() featu
+re and reorder the levels of the minority percentage variable to appear in asce
+nding order.  Table 2 displays the descriptive statistics on the number of disc
+iplinary actions per category of the ten schools filtered into the tidy data se
+t.  The use of the pivot_wider() function allowed the data frame to return the 
+four columns from the original data set: disciplinary actions recorded, inciden
+ts recorded, incidents reported to police, and out of school suspensions.  Plot
+s 4 and 5 provide exploratory scatterplots comparing the four variables of disc
+iplinary actions.  Plot 4 displays the total number of disciplinary actions rec
+orded by the total number of incidents reported with a fill of minority percent
+age.  Plot 5 displays the same comparison with a fill or urbanicity.  It is the
+ opinion of the authors that Plots 3 and 4 are not as useful as the other plots
+ in terms of data visualization, but they did provide an extra opportunity to u
+se features of ggplot, specifically the facet and fill functions.[] 
+ []
+
+
+Overfull \hbox (6285.62828pt too wide) in paragraph at lines 698--698
+[]\T1/lmtt/m/n/12 Model 1 was constructed to predict the total number of discip
+linary actions by school urbanicity and school enrollment.  This model accounte
+d for approximately 20.05% for the variance.  The results of this model suggest
+ed that schools coded as _city_ with an enrollment of 1,000 or more students re
+ported an average of 333.11 total disciplinary actions.  Schools coded as _rura
+l_ reported, on average, 52.18 fewer disciplinary actions when controlling for 
+school enrollment.  Additionally, schools coded as _town_ and _urban fringe_ re
+ported an average of 34.26 and 39.84 fewer disciplinary actions when controllin
+g for school enrollment.  When controlling for school urbanicity, schools with 
+enrollments of less than 1,000 students reported less disciplinary actions than
+ schools with enrollments over 1,000.  On average, schools with an enrollment o
+f 300-499 students reported 231.59 less disciplinary actions, schools with an e
+nrollment of 500-999 students reported 171.61 fewer disciplinary actions and sc
+hools with an enrollment of less than 300 reported 250.92 fewer disciplinary ac
+tions.[] 
+ []
+
+[21] [22] [23] [24] AED endfloat: Processing end Figures and Tables [25] (./111
+.ttt
 Overfull \hbox (112.91759pt too wide) in paragraph at lines 7--28
  [] 
  []
@@ -1087,30 +1159,29 @@ Overfull \hbox (20.82567pt too wide) in paragraph at lines 187--415
 LaTeX Warning: Float too large for page by 4704.79018pt on input line 417.
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 779.
-[27
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 782.
+[26
 
 
-] [28] [29] [30] [31] [32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 779.
-(./Final-Project_Zhang_Wright.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 779.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 779.
-Package rerunfilecheck Info: File `Final-Project_Zhang_Wright.out' has not chan
-ged.
+] [27] [28] [29] [30] [31]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 782.
+(./111.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 782.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 782.
+Package rerunfilecheck Info: File `111.out' has not changed.
 (rerunfilecheck)             Checksum: 7330634F1C9B7FCB76E9BBADF22707DA;3023.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13892 strings out of 494108
- 207710 string characters out of 6172240
- 358720 words of memory out of 5000000
- 17660 multiletter control sequences out of 15000+600000
+ 13884 strings out of 494108
+ 205821 string characters out of 6172240
+ 358658 words of memory out of 5000000
+ 17656 multiletter control sequences out of 15000+600000
  45170 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 46i,11n,51p,1512b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,11n,51p,1480b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.e
 nc}<c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmb
 x12.pfb><c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/l
@@ -1118,10 +1189,10 @@ m/lmr12.pfb><c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publ
 ic/lm/lmr8.pfb><c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/p
 ublic/lm/lmri12.pfb><c:/Users/clair/AppData/Roaming/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmtt12.pfb>
-Output written on Final-Project_Zhang_Wright.pdf (32 pages, 404902 bytes).
+Output written on 111.pdf (31 pages, 404849 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
- 313 compressed objects within 4 object streams
- 87 named destinations out of 1000 (max. 500000)
+ 374 PDF objects out of 1000 (max. 8388607)
+ 310 compressed objects within 4 object streams
+ 86 named destinations out of 1000 (max. 500000)
  216 words of extra memory for PDF output out of 10000 (max. 10000000)
 

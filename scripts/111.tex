@@ -1,4 +1,4 @@
-\documentclass[man, fleqn, noextraspace]{apa6}
+\documentclass[man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -98,8 +98,6 @@
 \makeatletter
 \renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
 \makeatother
-\raggedbottom
-\setlength{\parskip}{0pt}
 
 \authornote{This project was completed as part of a term assignment for EDLD 610: Intro to Data Science during the Fall 2019 term.
 
@@ -149,19 +147,19 @@ To tidy the data set aligning to our research questions, the pivot\_longer(), pi
 \hypertarget{linear-models}{%
 \subsection{Linear Models}\label{linear-models}}
 
-To analyze the data by categorical variables as a predictor of total disciplinary actions, three linear models were constructed using R Markdown. The first model consisted of two categorical variables, school urbanicity and enrollment, to predict the total number of school disciplinary actions. The second and third models expanded upon the first model by adding an additional variable within each one. The second model added the variable of school level, and the third model added the variable of school minority status. The group\_by() and summarize() functions were then utilized to present each model in table form.
+abc
 
 \hypertarget{descriptive-data-exploration-and-visualization}{%
 \subsection{Descriptive Data Exploration and Visualization}\label{descriptive-data-exploration-and-visualization}}
 
-The entire selected data set was utilized to produce Plots 6-10. These plots present different visualizations of the categorical variables, specifically the urbanicity variable. One scatterplot, Plot 8, was produced to display the relationship of out of school suspensions (OSS) to school total disciplinary actions.
+abc
 
 \hypertarget{teacher-training-relationship-to-oss}{%
 \subsection{Teacher Training Relationship to OSS}\label{teacher-training-relationship-to-oss}}
 
-The final code chunk was produced in R Markdown to explore the relationship between the provision of teacher training and OSS. The pivot\_longer() function was utilized to identify and visualize the provision of the individual type of teacher training per school. Plot 11 displays the findings of this code.
+abc
 
-\includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-1.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-2.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-3.pdf}
+\includegraphics{111_files/figure-latex/plots-tidydisc1-1.pdf} \includegraphics{111_files/figure-latex/plots-tidydisc1-2.pdf} \includegraphics{111_files/figure-latex/plots-tidydisc1-3.pdf}
 
 \begin{table}[tbp]
 
@@ -192,7 +190,7 @@ school\_id & \multicolumn{1}{c}{urbanicity} & \multicolumn{1}{c}{level} & \multi
 
 \end{table}
 
-\includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-1.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-2.pdf}
+\includegraphics{111_files/figure-latex/plots-tidydisc2-1.pdf} \includegraphics{111_files/figure-latex/plots-tidydisc2-2.pdf}
 
 \begin{table}[tbp]
 
@@ -643,13 +641,13 @@ Urban fringe & Less than 300 & Primary & Less than 5 percent & 50.00\\
 ##  Max.   :3168.0
 \end{verbatim}
 
-\includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-1.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-2.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-3.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-4.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-5.pdf}
+\includegraphics{111_files/figure-latex/descriptives all selected data-1.pdf} \includegraphics{111_files/figure-latex/descriptives all selected data-2.pdf} \includegraphics{111_files/figure-latex/descriptives all selected data-3.pdf} \includegraphics{111_files/figure-latex/descriptives all selected data-4.pdf} \includegraphics{111_files/figure-latex/descriptives all selected data-5.pdf}
 
 \begin{verbatim}
 ## Warning: Removed 160 rows containing non-finite values (stat_boxplot).
 \end{verbatim}
 
-\includegraphics{Final-Project_Zhang_Wright_files/figure-latex/teacher training suspension visuals-1.pdf}
+\includegraphics{111_files/figure-latex/teacher training suspension visuals-1.pdf}
 
 \begin{table}[tbp]
 
@@ -681,8 +679,11 @@ safety\_procedures & 432,530.00\\
 \hypertarget{tidy-data-1}{%
 \subsection{Tidy data}\label{tidy-data-1}}
 
-The mean number of total disciplinary actions was determined to be 159. This value was utilized to first identify schools with total disciplinary actions greater than this value and that did not provide any form of teacher training. A total of ten schools met the criteria. Five of these schools were coded for urbanicity as \emph{urban fringe}, two schools were coded as \emph{city}, two were coded as \emph{town}, and one school was coded as \emph{rural}. For the variable of school level, five of the schools were middle schools, four were high schools, and one school was a combined high school and middle school. For the variable of minority percentage, two schools possessed a minority percentage of \emph{50 percent or more}, four possessed a minority percentage of \emph{20 to 50 percent}, two possessed a minority percentage of \emph{5 to 20 percent}, and two schools possessed minority percentages of \emph{less than 5 percent}. Enrollment for four of the schools was coded as \emph{1,000 or more} students, \emph{500 - 999} students for three of the schools, \emph{300 - 499} for one of the schools, and \emph{less than 300} students for two of the schools.
-Table 1 displays the descriptive statistics for the ten schools organized into the tidy data set. Plot 1 displays a bar graph with school urbanicity on the x-axis and the total number of disciplinary actions on the y-axis. Plot 2 is similar to plot 1 but has instead presented minority percentage on the x-axis and expanded the display of Plot 1 by adding the faceting the plot by school enrollment. The purpose of Plot 3 was to remove the facet() feature and reorder the levels of the minority percentage variable to appear in ascending order. Table 2 displays the descriptive statistics on the number of disciplinary actions per category of the ten schools filtered into the tidy data set. The use of the pivot\_wider() function allowed the data frame to return the four columns from the original data set: disciplinary actions recorded, incidents recorded, incidents reported to police, and out of school suspensions. Plots 4 and 5 provide exploratory scatterplots comparing the four variables of disciplinary actions. Plot 4 displays the total number of disciplinary actions recorded by the total number of incidents reported with a fill of minority percentage. Plot 5 displays the same comparison with a fill or urbanicity. It is the opinion of the authors that Plots 3 and 4 are not as useful as the other plots in terms of data visualization, but they did provide an extra opportunity to use features of ggplot, specifically the facet and fill functions.
+\begin{verbatim}
+The mean number of total disciplinary actions was determined to be 159.  This value was utilized to first identify schools with total disciplinary actions greater than this value and that did not provide any form of teacher training.  A total of ten schools met the criteria.  Five of these schools were coded for urbanicity as _urban fringe_, two schools were coded as _city_, two were coded as _town_, and one school was coded as _rural_.  For the variable of school level, five of the schools were middle schools, four were high schools, and one school was a combined high school and middle school.  For the variable of minority percentage, two schools possessed a minority percentage of _50 percent or more_, four possessed a minority percentage of _20 to 50 percent_, two possessed a minority percentage of _5 to 20 percent_, and two schools possessed minority percentages of _less than 5 percent_.  Enrollment for four of the schools was coded as _1,000 or more_ students, _500 - 999_ students for three of the schools, _300 - 499_ for one of the schools, and _less than 300_ students for two of the schools. 
+
+Table 1 displays the descriptive statistics for the ten schools organized into the tidy data set.  Plot 1 displays a bar graph with school urbanicity on the x-axis and the total number of disciplinary actions on the y-axis.  Plot 2 is similar to plot 1 but has instead presented minority percentage on the x-axis and expanded the display of Plot 1 by adding the faceting the plot by school enrollment.  The purpose of Plot 3 was to remove the facet() feature and reorder the levels of the minority percentage variable to appear in ascending order.  Table 2 displays the descriptive statistics on the number of disciplinary actions per category of the ten schools filtered into the tidy data set.  The use of the pivot_wider() function allowed the data frame to return the four columns from the original data set: disciplinary actions recorded, incidents recorded, incidents reported to police, and out of school suspensions.  Plots 4 and 5 provide exploratory scatterplots comparing the four variables of disciplinary actions.  Plot 4 displays the total number of disciplinary actions recorded by the total number of incidents reported with a fill of minority percentage.  Plot 5 displays the same comparison with a fill or urbanicity.  It is the opinion of the authors that Plots 3 and 4 are not as useful as the other plots in terms of data visualization, but they did provide an extra opportunity to use features of ggplot, specifically the facet and fill functions. 
+\end{verbatim}
 
 \hypertarget{linear-models-1}{%
 \subsection{Linear Models}\label{linear-models-1}}
@@ -692,7 +693,9 @@ Tables 3-5 display the results of the three linear models constructed to describ
 \hypertarget{model-1}{%
 \subsubsection{Model 1}\label{model-1}}
 
-Model 1 was constructed to predict the total number of disciplinary actions by school urbanicity and school enrollment. This model accounted for approximately 20.05\% for the variance. The results of this model suggested that schools coded as \emph{city} with an enrollment of 1,000 or more students reported an average of 333.11 total disciplinary actions. Schools coded as \emph{rural} reported, on average, 52.18 fewer disciplinary actions when controlling for school enrollment. Additionally, schools coded as \emph{town} and \emph{urban fringe} reported an average of 34.26 and 39.84 fewer disciplinary actions when controlling for school enrollment. When controlling for school urbanicity, schools with enrollments of less than 1,000 students reported less disciplinary actions than schools with enrollments over 1,000. On average, schools with an enrollment of 300-499 students reported 231.59 less disciplinary actions, schools with an enrollment of 500-999 students reported 171.61 fewer disciplinary actions and schools with an enrollment of less than 300 reported 250.92 fewer disciplinary actions.
+\begin{verbatim}
+Model 1 was constructed to predict the total number of disciplinary actions by school urbanicity and school enrollment.  This model accounted for approximately 20.05% for the variance.  The results of this model suggested that schools coded as _city_ with an enrollment of 1,000 or more students reported an average of 333.11 total disciplinary actions.  Schools coded as _rural_ reported, on average, 52.18 fewer disciplinary actions when controlling for school enrollment.  Additionally, schools coded as _town_ and _urban fringe_ reported an average of 34.26 and 39.84 fewer disciplinary actions when controlling for school enrollment.  When controlling for school urbanicity, schools with enrollments of less than 1,000 students reported less disciplinary actions than schools with enrollments over 1,000.  On average, schools with an enrollment of 300-499 students reported 231.59 less disciplinary actions, schools with an enrollment of 500-999 students reported 171.61 fewer disciplinary actions and schools with an enrollment of less than 300 reported 250.92 fewer disciplinary actions. 
+\end{verbatim}
 
 \hypertarget{model-2}{%
 \subsubsection{Model 2}\label{model-2}}
