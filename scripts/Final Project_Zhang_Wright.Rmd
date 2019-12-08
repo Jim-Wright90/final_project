@@ -14,7 +14,7 @@ affiliation:
     institution   : "University of Oregon"
 authornote: |
   This project was completed as part of a term assignment for EDLD 610: Intro to Data Science during the Fall 2019 term.
-abstract: The purpose of this paper is to explore data from the “2005-2006 School Survey on Crime and Safety” using functions in R Markdown.  The data file with results from the survey was acquired from data.gov and consists of 525 columns by 2,724 rows.  To complete this project, 14 total variables were selected from the data set to transform from its messy state to tidy data.  The 14 variables included the school ID variable, four categorical variables, five logical variables, and four quantitative variables.  Linear models were completed to determine which categorical variables most highly correlated with total disciplinary actions within the school and to determine the correlation between the provision of teacher training and out of school suspensions (OSS).  Results of the analyses found that the strongest predictors of disciplinary actions taken by schools are schools that were coded as either a high school or combined middle school and high school located in an urban city with a minority percentage of 20% or more.  It was also determined that the provision of teacher training occurred in a majority of schools; however, these trainings did not have a significant impact on reducing the number of out of school suspensions. 
+abstract: The purpose of this paper is to explore data from “2005-2006 School Survey on Crime and Safety” using functions in R Markdown.  The data file with results from the survey was published by National Center for Education Statistics (NCES) and consists of 525 columns by 2,724 rows. We acquired it from data.gov website. To complete this project, 14 total variables were selected from the data set to transform from its messy state to tidy data.  The 14 variables included the school ID variable, four categorical variables, five logical variables, and four quantitative variables.  Linear models were completed to determine which categorical variables most highly correlated with total disciplinary actions within the school and to explore the possible correlation between the provision of teacher training and out of school suspensions (OSS).  Results of the analyses found that the strongest predictors of disciplinary actions taken by schools are schools that were coded as either a high school or combined middle school and high school located in an urban city with a minority percentage of 20% or more.  It was also determined that the provision of teacher training occurred in a majority of schools; however, we didn't find these trainings have a significant impact on reducing the number of out of school suspensions. 
 
   
   <!-- https://tinyurl.com/ybremelq -->
@@ -437,7 +437,7 @@ apa_table(mod4_summary,
   
 ## Teacher Training Relationship to OSS
 
-  Plots 9 and 10 display descriptive counts on the number of schools that provide teacher training on classroom manageemnt and positive behaviorl intervention, respectively.  Both plots are organized by school urbanicity and faceted by school enrollment.  The purpose of Plot 11 was to display the relationship of providing specific teacher trainings and how this may predict OSS.  Overall, Plot 11 and the results of Model 4 provide preliminary evidence that the provision of teacher training can be a useful method for schools to implement to reduce OSS; however, further analysis is warranted to determine a more accurate effect on the provision of teacher training on reducing OSS. 
+  Plots 9 and 10 display descriptive counts on the number of schools that provide teacher training on classroom manageemnt and positive behaviorl intervention, respectively.  Both plots are organized by school urbanicity and faceted by school enrollment.  The purpose of Plot 11 was to visualize the relationship between five teacher training categories and the total number of OSS and help us to understand whether schools providing these teacher trainings or not have different OSS. From the plot we noticed that there are mean differences of OSS between training and no training in all categories except for positive behavioral intervention, but we don't know whether the differences are statistically significant or not. For positive behavioral training, the mean difference is fairly small which raises questions on whether this training is effective in reducing OSS. Overall, the relationship between teacher trainings and OSS is either unknown or unseen in this project, therefore further analysis is warranted if we want to know whether these five teacher trainings are effective ways to reduce OSS. 
   
 # Discussion
 
@@ -446,7 +446,7 @@ apa_table(mod4_summary,
   The disparity in student discipline across such categorical variables as urbanicity, enrollment, and minority status aligns with concerns that has been previously identified in the literature [@han2011].  Future studies should investigate the nature of discipline policy in more at risk schools to ensure specific groups of students are not over-targeted for disciplinary action. 
   
   
-```{r descriptive counts, include = FALSE}  
+```{r descriptive counts, results = "asis"}  
 
 #calculations to include in the document. Can remove prior to turning in 
 safe_organized %>% 
