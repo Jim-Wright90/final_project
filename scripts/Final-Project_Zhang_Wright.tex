@@ -1,34 +1,47 @@
-\documentclass[man, fleqn, noextraspace]{apa6}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man, fleqn, noextraspace]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={Data Exploration of the 2005-2006 School Survey on Crime and Safety},
-            pdfauthor={Jim Wright~\& Claire Zhang},
-            pdfkeywords={School Crime, School Safety, Discipline Policies},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Data Exploration of the 2005-2006 School Survey on Crime and Safety},
+  pdfauthor={Jim Wright~\& Claire Zhang},
+  pdfkeywords={School Crime, School Safety, Discipline Policies},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -38,35 +51,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-
-  \title{Data Exploration of the 2005-2006 School Survey on Crime and Safety}
-    \author{Jim Wright\textsuperscript{1}~\& Claire Zhang\textsuperscript{1}}
-    \date{}
-  
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \shorttitle{2005-2006 SCHOOL SURVEY ON CRIME AND SAFETY}
 \affiliation{
 \vspace{0.5cm}
@@ -101,6 +93,10 @@
 \raggedbottom
 \setlength{\parskip}{0pt}
 
+\title{Data Exploration of the 2005-2006 School Survey on Crime and Safety}
+\author{Jim Wright\textsuperscript{1}~\& Claire Zhang\textsuperscript{1}}
+\date{}
+
 \authornote{This project was completed as part of a term assignment for EDLD 610: Intro to Data Science during the Fall 2019 term.
 
 Correspondence concerning this article should be addressed to Jim Wright, University of Oregon, Eugene, OR. E-mail: \href{mailto:jwrigh16@uoregon.edu}{\nolinkurl{jwrigh16@uoregon.edu}}}
@@ -117,39 +113,35 @@ The purpose of this paper is to explore data from ``2005-2006 School Survey on C
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Since the 1990s, there has been an increase in awareness and concern over the rate of school crime in American public schools (Chen, 2008). Following the 1999-2000 academic school year in which 71\% of American public schools experienced at least one violent incident, schools, predominantly in urban areas, responded with a variety of measures to curb violence. Suche measures included the use of metal detectors, camera surveillance systems, and establising a consistent police presence (Chen, 2008; Han \& Akiba, 2011). Schools have also placed more authority in the hands of classroom teachers to discipline students on an individual basis (Han \& Akiba, 2011).
+Since the 1990s, there has been an increase in awareness and concern over the rate of school crime in American public schools (Chen, 2008). Following the 1999-2000 academic school year in which 71\% of American public schools experienced at least one violent incident, schools, predominantly in urban areas, responded with a variety of measures to curb violence. Such measures included the use of metal detectors, camera surveillance systems, and establishing a consistent police presence (Chen, 2008; Han \& Akiba, 2011). Schools have also placed more authority in the hands of classroom teachers to discipline students on an individual basis (Han \& Akiba, 2011).
 
 The shift in school aggressiveness to prevent and discipline crime can be traced back to the 1994 Gun-Free Schools Act (GFSA), which was reauthorized in the 2001 No Child Left Behind Act (NCBL) (Han \& Akiba, 2011). There is a general consensus in the literature that more aggressive discipline policies authorized under GFSA and NCBL have not resulted in positive outcomes, but instead, have resulted in disproportionate discipline of students by certain characteristics such as student race, school size, school location, school level, school minority status, and school socioeconomic status (Han \& Akiba, 2011). Disproportionate discipline implementation may provide one rationale as to why specific student demographics, such as age, race, poverty, and socioeconomic status are highly correlated with school crime and violence.
 
-Therefore, the purpose of this paper is to utilize functions within R Markdown to explore the results of the 2005-2006 School Survey on Crime and Safety with a specific focus on how school characteristics and the provision of specific types of teacher trainings correlate with total disciplinary actions.
-
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
+Therefore, the purpose of this paper is to utilize functions within R Markdown to explore the results of the 2005-2006 School Survey on Crime and Safety with a specific focus on how school characteristics and the provision of specific types of teacher trainings correlate with total disciplinary actions.\\
+\# Methods
 
 The School Survey on Crime and Safety was first introduced during the 1999-2000 academic school year. It was repeated during the 2003-2004 school year and again in 2005-2006 (Nolle, Guerino, Dinkes, \& Chandler, 2007). The data to be explored and analyzed for this project represents the 2005-2006 school year, the third time the survey was distributed across U.S. public schools. Data collection for the survey began on March 17, 2006, and continued through May 26, 2006 (Nolle et al., 2007). The survey was sent to be completed by school principals of a stratified random sample of 3,565 schools. A total of 2,724 principals from primary, middle, high, and combined schools completed and returned the survey for a response rate of 81\% (Nolle et al., 2007).
+\#\# Data Import
 
-\hypertarget{data-import}{%
-\subsection{Data Import}\label{data-import}}
+The survey data for this paper was obtained for free from data.gov. It was downloaded from the data.gov website as an SPSS file and imported into R for the purposes of data exploration and analysis. When imported into R, the data in its messy form consisted of 525 columns representing the questions of the survey and 2,724 rows representing the responses from each individual school.
 
-The survey data for this paper was obtained for free from data.gov. It was downloaded from the data.gov website as an SPSS file and imported into R Markdown for the purposes of data exploration and analysis. When imported into R Markdown, the data in its messy form consisted of 525 columns representing the questions of the survey and 2,724 rows representing the responses from each individual school.
+The specific research questions for this paper were to explore how school characteristics and the provision of teacher training align with and predict school disciplinary actions. To address these questions, 14 variables, including the column identifying the specific school, were isolated from the complete data set using the \texttt{select()} function. These variables included four categorical variables, five logical variables, and four quantitative variables.
 
-The specific research questions for this paper were to explore how school characteristics and the provision of teacher training align with and predict school disciplinary actions. To address these questions, 14 variables, including the column identifying the specific school, were isolated from the complete data set using the select() function. These variables included four categorical variables, five logical variables, and four quantitative variables.
+The four categorical variables were titled \enquote{urban}, \enquote{level}, \enquote{minority}, and \enquote{enroll} and each contained four levels. The \enquote{urban}, \enquote{minority}, and \enquote{enroll} variables were renamed in R Markdown using the \texttt{rename(}) function. The \enquote{urban} variable was renamed \enquote{urbanicity} to represent the variable of school urbanicity. Its four levels included: \emph{city}, \emph{urban fringe}, \emph{town}, and \emph{rural}. Although not renamed, the \enquote{level} variable represented the school's level and contained the following four levels: \emph{primary}, \emph{middle}, \emph{high school}, and \emph{combined}. Schools coded as \emph{combined} provided both middle and high school grades. The \enquote{minority} variable was renamed \enquote{minority status} to represent the variable of school minority status and contained the following four levels: \emph{less than 5 percent}, \emph{5 to 20 percent}, \emph{20 to 50 percent}, and \emph{greater than 50 percent}. The \enquote{enroll} variable was renamed \enquote{enrollment} and contained four levels to represent school enrollment. The four levels consisted of: \emph{less than 300}, \emph{300 - 499}, \emph{500 - 999}, and \emph{1,000 or more}.
 
-The four categorical variables were titled \enquote{urban}, \enquote{level}, \enquote{minority}, and \enquote{enroll} and each contained four levels. The \enquote{urban}, \enquote{minority}, and \enquote{enroll} variables were renamed in R Markdown using the rename() function. The \enquote{urban} was renamed \enquote{urbanicity} to represent the variable of school urbanicity. Its four levels included: \emph{city}, \emph{urban fringe}, \emph{town}, and \emph{rural}. Although not renamed, the \enquote{level} variable represented the school's level and contained the following four levels: \emph{primary}, \emph{middle}, \emph{high school}, and \emph{combined}. Schools coded as \emph{combined} provided both middle and high school grades. The \enquote{minority} variable was renamed \enquote{minority status} to represent the variable of school minority status and contained the following four levels: \emph{less than 5 percent}, \emph{5 to 20 percent}, \emph{20 to 50 percent}, and \emph{greater than 50 percent}. The \enquote{enroll} variable was renamed \enquote{enrollment} and contained four levels to represent school enrollment. The four levels consisted of: \emph{less than 300}, \emph{300 - 499}, \emph{500 - 999}, and \emph{1,000 or more}.
+The five logical variables of the organized data set represented logical variables with a yes/no response on whether or not the school provided specific types of teacher trainings. The five teacher trainings selected for the current project included: classroom management, discipline policies, safety procedures, early warning signs for violent behavior, and positive behavioral intervention. The variable names for teacher training were also renamed within R Markdown using the \texttt{rename()} function.
 
-The five logical variables of the organized data set represented logical variables with a yes/no response on whether or not the school provided specific types of teacher trainings. The five teacher trainings selected for the current project included: classroom management, discipline policies, safety procedures, early warning signs for violent behavior, and positive behavioral intervention. The variable names for teacher training were also renamed within R Markdown using the rename() function.
-
-The four quantitative variables of the organized data set represented numerical counts of specific types of disciplinary actions taken by the school. The four types of disciplinary actions included: disciplinary actions recorded, incidents recorded, incidents reported to police, and out of school suspensions. Like the other variable types, the names of these variables were renamed using the rename() function in R Markdown. To make the analysis of these totals more efficient, these variables were combined into a single variable using the mutate() function to represent the total number of disciplinary actions per school.
+The four quantitative variables of the organized data set represented numerical counts of specific types of disciplinary actions taken by the school. The four types of disciplinary actions included: disciplinary actions recorded, incidents recorded, incidents reported to police, and out-of-school suspensions. Like the other variable types, the names of these variables were renamed using the \texttt{rename()} function in R Markdown. To make the analysis of these totals more efficient, these variables were combined into a single variable using the \texttt{mutate()} function to represent the total number of disciplinary actions per school.
 
 \hypertarget{tidy-data}{%
 \subsection{Tidy Data}\label{tidy-data}}
 
-To tidy the data set aligning to our research questions, the pivot\_longer(), pivot\_wider(), and filter() functions were utilized. First, the average number of total disciplinary actions was identified and saved in R Markdown as its own object. Then, using pivot-longer() a new data frame was created in which the four disciplinary action variables were lengthened within the data set to more efficiently visualize the specific number of disciplinary actions (by type) per school. This new data frame only included schools with an above-average number of total disciplinary actions and that did not provide any type of teacher training. The schools for this data frame were identified using the filter() function. This data frame was then returned to its original form using the function pivot\_wider() to produce plots on the specific types of disciplinary actions. Plots for the tidy data frames are presented in Plots 1-5 and Tables 1 and 2.
+To tidy the data set aligning to our research questions, the \texttt{pivot\_longer()}, \texttt{pivot\_wider()}, and \texttt{filter()} functions were utilized. First, the average number of total disciplinary actions was identified and saved in R Markdown as its own object. Then, using pivot-longer() a new data frame was created in which the four disciplinary action variables were lengthened within the data set to more efficiently visualize the specific number of disciplinary actions (by type) per school. This new data frame only included schools with an above-average number of total disciplinary actions and that did not provide any type of teacher training. The schools for this data frame were identified using the filter() function. This data frame was then returned to its original form using the function pivot\_wider() to produce plots on the specific types of disciplinary actions. Plots for the tidy data frames are presented in Plots 1-5 and Tables 1 and 2.
 
 \hypertarget{linear-models}{%
 \subsection{Linear Models}\label{linear-models}}
 
-To analyze the data by categorical variables as a predictor of total disciplinary actions, three linear models were constructed using R Markdown. The first model consisted of two categorical variables, school urbanicity and enrollment, to predict the total number of school disciplinary actions. The second and third models expanded upon the first model by adding an additional variable within each one. The second model added the variable of school level, and the third model added the variable of school minority status. The group\_by() and summarize() functions were then utilized to present each model in table form.
+To analyze the data by categorical variables as a predictor of total disciplinary actions, three linear models were constructed. The first model consisted of two categorical variables, school urbanicity and enrollment, to predict the total number of school disciplinary actions. The second and third models expanded upon the first model by adding an additional variable within each one. The second model added the variable of school level, and the third model added the variable of school minority status. The group\_by() and summarize() functions were then utilized to present each model in table form.
 
 \hypertarget{descriptive-data-exploration-and-visualization}{%
 \subsection{Descriptive Data Exploration and Visualization}\label{descriptive-data-exploration-and-visualization}}
@@ -164,12 +156,9 @@ The final code chunk was produced in R Markdown to explore the relationship betw
 \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-1.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-2.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc1-3.pdf}
 
 \begin{table}[tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:descriptives tidydisc1}Total Disciplinary Actions for Schools Not Providing Any Form of Teacher Training by School Category}
-
 \begin{tabular}{llllll}
 \toprule
 school\_id & \multicolumn{1}{c}{urbanicity} & \multicolumn{1}{c}{level} & \multicolumn{1}{c}{minority\_percentage} & \multicolumn{1}{c}{enrollment} & \multicolumn{1}{c}{sum(total\_discipline\_actions)}\\
@@ -186,21 +175,16 @@ school\_id & \multicolumn{1}{c}{urbanicity} & \multicolumn{1}{c}{level} & \multi
 3,517.00 & Rural & Middle & 20 to 50 percent & Less than 300 & 680.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table}
 
 \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-1.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/plots-tidydisc2-2.pdf}
 
 \begin{table}[tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:descriptives tidydisc2}Total Disciplinary Actions for Schools Not Providing Any Form of Teacher Training by Specific Form of Discipline}
-
 \begin{tabular}{llllll}
 \toprule
 school\_id & \multicolumn{1}{c}{total\_discipline\_actions} & \multicolumn{1}{c}{incidents\_recorded} & \multicolumn{1}{c}{incidents\_reported\_to\_police} & \multicolumn{1}{c}{out\_of\_school\_suspensions} & \multicolumn{1}{c}{sum(total\_discipline\_actions)}\\
@@ -217,19 +201,14 @@ school\_id & \multicolumn{1}{c}{total\_discipline\_actions} & \multicolumn{1}{c}
 3,517.00 & 170.00 & 30.00 & 18.00 & 7.00 & 170.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table}
 
 \begin{table}[tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:model tables}Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment}
-
 \begin{tabular}{lll}
 \toprule
 urbanicity & \multicolumn{1}{c}{enrollment} & \multicolumn{1}{c}{total\_discipline\_actions}\\
@@ -252,19 +231,14 @@ Urban fringe & 500-999 & 54,830.00\\
 Urban fringe & Less than 300 & 2,742.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table}
 
 \begin{table}[tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:model tables}Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment and Level}
-
 \begin{tabular}{llll}
 \toprule
 urbanicity & \multicolumn{1}{c}{enrollment} & \multicolumn{1}{c}{level} & \multicolumn{1}{c}{total\_discipline\_actions}\\
@@ -335,19 +309,14 @@ Urban fringe & Less than 300 & Middle & 1,713.00\\
 Urban fringe & Less than 300 & Primary & 302.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table}
 
 \begin{table}[tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:model tables}Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment, Level, and Minority Percentage}
-
 \begin{tabular}{lllll}
 \toprule
 urbanicity & \multicolumn{1}{c}{enrollment} & \multicolumn{1}{c}{level} & \multicolumn{1}{c}{minority\_percentage} & \multicolumn{1}{c}{total\_discipline\_actions}\\
@@ -571,77 +540,9 @@ Urban fringe & Less than 300 & Primary & 50 percent or more & 113.00\\
 Urban fringe & Less than 300 & Primary & Less than 5 percent & 50.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table}
-
-\begin{verbatim}
-##    school_id       urbanicity           level          
-##  Min.   :   3.0   Length:2724        Length:2724       
-##  1st Qu.: 898.8   Class :character   Class :character  
-##  Median :1784.5   Mode  :character   Mode  :character  
-##  Mean   :1788.1                                        
-##  3rd Qu.:2683.2                                        
-##  Max.   :3565.0                                        
-##  minority_percentage  enrollment       
-##  Length:2724         Length:2724       
-##  Class :character    Class :character  
-##  Mode  :character    Mode  :character  
-##                                        
-##                                        
-##                                        
-##  teacher_training_classroom_management
-##  Length:2724                          
-##  Class :character                     
-##  Mode  :character                     
-##                                       
-##                                       
-##                                       
-##  teacher_training_discipline_policies teacher_training_safety_procedures
-##  Length:2724                          Length:2724                       
-##  Class :character                     Class :character                  
-##  Mode  :character                     Mode  :character                  
-##                                                                         
-##                                                                         
-##                                                                         
-##  teacher_training_early_warning_signs_for_violent_behavior
-##  Length:2724                                              
-##  Class :character                                         
-##  Mode  :character                                         
-##                                                           
-##                                                           
-##                                                           
-##  teacher_training_positive_behavioral_intervention
-##  Length:2724                                      
-##  Class :character                                 
-##  Mode  :character                                 
-##                                                   
-##                                                   
-##                                                   
-##  disciplinary_actions_recorded incidents_recorded
-##  Min.   :   0.00               Min.   :  0.00    
-##  1st Qu.:   8.00               1st Qu.: 10.00    
-##  Median :  30.00               Median : 26.00    
-##  Mean   :  79.03               Mean   : 44.06    
-##  3rd Qu.:  85.25               3rd Qu.: 57.25    
-##  Max.   :2495.00               Max.   :617.00    
-##  incidents_reported_to_police out_of_school_suspensions
-##  Min.   :  0.0                Min.   :  0.00           
-##  1st Qu.:  1.0                1st Qu.:  0.00           
-##  Median :  6.0                Median :  2.00           
-##  Mean   : 20.2                Mean   : 15.49           
-##  3rd Qu.: 24.0                3rd Qu.: 14.00           
-##  Max.   :307.0                Max.   :897.00           
-##  total_discipline_actions
-##  Min.   :   0.0          
-##  1st Qu.:  26.0          
-##  Median :  80.0          
-##  Mean   : 158.8          
-##  3rd Qu.: 198.0          
-##  Max.   :3168.0
-\end{verbatim}
 
 \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-1.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-2.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-3.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-4.pdf} \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/descriptives all selected data-5.pdf}
 
@@ -652,12 +553,9 @@ Urban fringe & Less than 300 & Primary & Less than 5 percent & 50.00\\
 \includegraphics{Final-Project_Zhang_Wright_files/figure-latex/teacher training suspension visuals-1.pdf}
 
 \begin{table}[tbp]
-
 \begin{center}
 \begin{threeparttable}
-
-\caption{\label{tab:teacher training suspension visuals}Regression Results displaying Total Disciplinary Actions Predicted by Provision of Type of Teacher Training}
-
+\caption{\label{tab:unnamed-chunk-1}Regression Results displaying Total Disciplinary Actions Predicted by Provision of Type of Teacher Training}
 \begin{tabular}{ll}
 \toprule
 training & \multicolumn{1}{c}{total\_discipline\_actions}\\
@@ -669,10 +567,8 @@ positive\_behavioral\_intervention & 432,530.00\\
 safety\_procedures & 432,530.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table}
 
 \hypertarget{results}{%
@@ -725,35 +621,6 @@ The purpose of this project was to utilize the features and packages of R Markdo
 
 The disparity in student discipline across such categorical variables as urbanicity, enrollment, and minority status aligns with concerns that has been previously identified in the literature (Han \& Akiba, 2011). Future studies should investigate the nature of discipline policy in more at risk schools to ensure specific groups of students are not over-targeted for disciplinary action.
 
-\hypertarget{a-tibble-4-x-2}{%
-\section{A tibble: 4 x 2}\label{a-tibble-4-x-2}}
-
-urbanicity n
-1 City 697
-2 Rural 700
-3 Town 281
-4 Urban fringe 1046
-\# A tibble: 4 x 2
-level n
-1 Combined 137
-2 High School 924
-3 Middle 948
-4 Primary 715
-\# A tibble: 4 x 2
-enrollment n
-1 1,000 or more 813
-2 300-499 513
-3 500-999 1041
-4 Less than 300 357
-\# A tibble: 1 x 1
-\texttt{sum(total\_discipline\_actions)}
-1 432530
-\# A tibble: 1 x 1
-\texttt{sum(out\_of\_school\_suspensions)}
-1 42199
-sum(out\_of\_school\_suspensions)
-1 0.09756317
-
 \newpage
 
 \hypertarget{references}{%
@@ -774,6 +641,5 @@ Han, S., \& Akiba, M. (2011). School safety, severe disciplinary actions, and sc
 Nolle, K. L., Guerino, P., Dinkes, R., \& Chandler, K. (2007). Crime, violence, discipline, and safety in us public schools. Findings from the school survey on crime and safety: 2005-06. NCES 2007-361. \emph{National Center for Education Statistics}.
 
 \endgroup
-
 
 \end{document}

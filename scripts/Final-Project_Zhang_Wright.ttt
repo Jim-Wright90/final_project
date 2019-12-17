@@ -1,12 +1,9 @@
 \begin{table*}[hbt]
 \ifnextchar[{\eatarg}{}
 [tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:descriptives tidydisc1}Total Disciplinary Actions for Schools Not Providing Any Form of Teacher Training by School Category}
-
 \begin{tabular}{llllll}
 \toprule
 school\_id & \multicolumn{1}{c}{urbanicity} & \multicolumn{1}{c}{level} & \multicolumn{1}{c}{minority\_percentage} & \multicolumn{1}{c}{enrollment} & \multicolumn{1}{c}{sum(total\_discipline\_actions)}\\
@@ -23,20 +20,15 @@ school\_id & \multicolumn{1}{c}{urbanicity} & \multicolumn{1}{c}{level} & \multi
 3,517.00 & Rural & Middle & 20 to 50 percent & Less than 300 & 680.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table*}
 \begin{table*}[hbt]
 \ifnextchar[{\eatarg}{}
 [tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:descriptives tidydisc2}Total Disciplinary Actions for Schools Not Providing Any Form of Teacher Training by Specific Form of Discipline}
-
 \begin{tabular}{llllll}
 \toprule
 school\_id & \multicolumn{1}{c}{total\_discipline\_actions} & \multicolumn{1}{c}{incidents\_recorded} & \multicolumn{1}{c}{incidents\_reported\_to\_police} & \multicolumn{1}{c}{out\_of\_school\_suspensions} & \multicolumn{1}{c}{sum(total\_discipline\_actions)}\\
@@ -53,20 +45,15 @@ school\_id & \multicolumn{1}{c}{total\_discipline\_actions} & \multicolumn{1}{c}
 3,517.00 & 170.00 & 30.00 & 18.00 & 7.00 & 170.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table*}
 \begin{table*}[hbt]
 \ifnextchar[{\eatarg}{}
 [tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:model tables}Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment}
-
 \begin{tabular}{lll}
 \toprule
 urbanicity & \multicolumn{1}{c}{enrollment} & \multicolumn{1}{c}{total\_discipline\_actions}\\
@@ -89,20 +76,15 @@ Urban fringe & 500-999 & 54,830.00\\
 Urban fringe & Less than 300 & 2,742.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table*}
 \begin{table*}[hbt]
 \ifnextchar[{\eatarg}{}
 [tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:model tables}Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment and Level}
-
 \begin{tabular}{llll}
 \toprule
 urbanicity & \multicolumn{1}{c}{enrollment} & \multicolumn{1}{c}{level} & \multicolumn{1}{c}{total\_discipline\_actions}\\
@@ -173,20 +155,15 @@ Urban fringe & Less than 300 & Middle & 1,713.00\\
 Urban fringe & Less than 300 & Primary & 302.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table*}
 \begin{table*}[hbt]
 \ifnextchar[{\eatarg}{}
 [tbp]
-
 \begin{center}
 \begin{threeparttable}
-
 \caption{\label{tab:model tables}Regression Results displaying Total Disciplinary Actions Predicted by School Urbanicity when Controlling for School Enrollment, Level, and Minority Percentage}
-
 \begin{tabular}{lllll}
 \toprule
 urbanicity & \multicolumn{1}{c}{enrollment} & \multicolumn{1}{c}{level} & \multicolumn{1}{c}{minority\_percentage} & \multicolumn{1}{c}{total\_discipline\_actions}\\
@@ -410,20 +387,15 @@ Urban fringe & Less than 300 & Primary & 50 percent or more & 113.00\\
 Urban fringe & Less than 300 & Primary & Less than 5 percent & 50.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table*}
 \begin{table*}[hbt]
 \ifnextchar[{\eatarg}{}
 [tbp]
-
 \begin{center}
 \begin{threeparttable}
-
-\caption{\label{tab:teacher training suspension visuals}Regression Results displaying Total Disciplinary Actions Predicted by Provision of Type of Teacher Training}
-
+\caption{\label{tab:unnamed-chunk-1}Regression Results displaying Total Disciplinary Actions Predicted by Provision of Type of Teacher Training}
 \begin{tabular}{ll}
 \toprule
 training & \multicolumn{1}{c}{total\_discipline\_actions}\\
@@ -435,8 +407,6 @@ positive\_behavioral\_intervention & 432,530.00\\
 safety\_procedures & 432,530.00\\
 \bottomrule
 \end{tabular}
-
 \end{threeparttable}
 \end{center}
-
 \end{table*}
